@@ -1,0 +1,29 @@
+<div class="container">
+  <form class="form">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Type a username</mat-label>
+      <input
+        matInput
+        class="input"
+        [formControl]="search"
+        [matAutocomplete]="auto"
+        UsernameInput
+      />
+      <mat-error *ngIf="search.invalid" class="input-error">{{
+        getErrorMessage()
+      }}</mat-error>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="onAutocompleteSelection($event)"
+      >
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </mat-option>
+        <mat-option *ngIf="shouldShowNoResults()" disabled
+          >No results found</mat-option
+        >
+      </mat-autocomplete>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </form>
+</div>

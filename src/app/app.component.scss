@@ -1,0 +1,15 @@
+:host {
+    .mat-toolbar {
+        font-size: 2em;
+        color: rgb(82, 53, 30);
+        background-color: #c1a983;
+
+        div {
+            cursor: pointer;
+            padding: 0.5em;
+            font-family: 'RuneScape Chat Bold \'07';
+            font-weight: bolder;
+            font-style: normal;
+        }
+    }
+}
