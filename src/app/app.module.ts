@@ -13,6 +13,9 @@ import { PlayerComponent } from './player/player.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UsernameInputDirective } from './directives/username-input.directive';
+import { SummaryPanelComponent } from './player/summary-panel/summary-panel.component';
+import { SkillsPanelComponent } from './player/skills-panel/skills-panel.component';
+import { QuestsPanelComponent } from './player/quests-panel/quests-panel.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { UsernameInputDirective } from './directives/username-input.directive';
     HomeComponent,
     PlayerComponent,
     UsernameInputDirective,
+    SummaryPanelComponent,
+    SkillsPanelComponent,
+    QuestsPanelComponent,
   ],
   imports: [
     BrowserModule,

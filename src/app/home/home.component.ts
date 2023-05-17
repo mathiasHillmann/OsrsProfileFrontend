@@ -4,6 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { HttpResponse } from '../interfaces/http-response';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ export class HomeComponent {
           if (value && this.search.valid) {
             this.http
               .get<HttpResponse<string[]>>(
-                `http://osrsprofilebackend.test/api/search/${value}`
+                `${environment.apiUrl}/api/search/${value}`
               )
               .subscribe({
                 next: (response) => {

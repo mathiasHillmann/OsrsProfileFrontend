@@ -1,1 +1,5 @@
-<p>{{ this.username }}</p>
+<div class="upper-grid">
+  <div><summary-panel [data]="playerData?.summary"></summary-panel></div>
+  <div><skills-panel [data]="playerData?.skills"></skills-panel></div>
+  <div><quests-panel [data]="playerData?.quests"></quests-panel></div>
+</div>
