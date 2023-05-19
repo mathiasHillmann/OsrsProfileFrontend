@@ -1,4 +1,8 @@
 <mat-toolbar>
-  <div (click)="onLogoClick()">OSRSProfile</div>
+  <div (click)="onLogoClick()" class="runescape-font">OSRSProfile</div>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="onCogClick()" aria-label="Configuration">
+    <mat-icon>settings</mat-icon>
+  </button>
 </mat-toolbar>
 <router-outlet></router-outlet>

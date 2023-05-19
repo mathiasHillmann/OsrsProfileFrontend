@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./summary-panel.component.scss'],
 })
 export class SummaryPanelComponent {
-  @Input() data: Record<string, any> | undefined;
+  @Input() data!: Record<string, any>;
 }

@@ -7,5 +7,6 @@ import { Skill } from 'src/app/interfaces/player-data';
   styleUrls: ['./skills-panel.component.scss'],
 })
 export class SkillsPanelComponent {
-  @Input() data: Record<string, Skill> | undefined;
+  @Input() data!: Record<string, Skill>;
+  @Input() shouldUseVirtualLevels!: boolean;
 }

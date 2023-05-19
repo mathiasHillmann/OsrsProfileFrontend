@@ -1,0 +1,27 @@
+.skill {
+  padding: 0.3em;
+  display: flex;
+  gap: 0.5em;
+  background-color: #554c41;
+  border: solid 1px #6c5f4e;
+  min-height: 36px;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    max-height: 30px;
+    max-width: 30px;
+  }
+
+  .level {
+    color: #f1f100;
+  }
+}
+
+.gold-trim {
+  border: solid 1px #ffd700;
+}
+
+.silver-trim {
+  border: solid 1px #c0c0c0;
+}

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ConfigComponent } from './config/config.component';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +11,16 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'OSRS Profile';
 
-  constructor(public router: Router) {}
+  constructor(private router: Router, private dialog: MatDialog) {}
 
   onLogoClick() {
     this.router.navigate(['/']);
+  }
+
+  onCogClick() {
+    this.dialog.open(ConfigComponent, {
+      height: '12em',
+      width: '20em',
+    });
   }
 }

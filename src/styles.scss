@@ -1,40 +1,58 @@
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 @include mat.core();
 
 $OsrsProfileFrontend-primary: mat.define-palette(mat.$indigo-palette);
-$OsrsProfileFrontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$OsrsProfileFrontend-accent: mat.define-palette(
+  mat.$pink-palette,
+  A200,
+  A100,
+  A400
+);
 
 $OsrsProfileFrontend-warn: mat.define-palette(mat.$red-palette);
 
-$OsrsProfileFrontend-theme: mat.define-light-theme((
-  color: (
-    primary: $OsrsProfileFrontend-primary,
-    accent: $OsrsProfileFrontend-accent,
-    warn: $OsrsProfileFrontend-warn,
+$OsrsProfileFrontend-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $OsrsProfileFrontend-primary,
+      accent: $OsrsProfileFrontend-accent,
+      warn: $OsrsProfileFrontend-warn,
+    ),
   )
-));
+);
 
 @include mat.all-component-themes($OsrsProfileFrontend-theme);
 
 @font-face {
-  font-family: 'RuneScape Chat Bold \'07';
-  src: url('assets/font/RuneScape-Chat-Bold-07.eot');
-  src: url('assets/font/RuneScape-Chat-Bold-07.eot?#iefix') format('embedded-opentype'),
-      url('assets/font/RuneScape-Chat-Bold-07.woff2') format('woff2'),
-      url('assets/font/RuneScape-Chat-Bold-07.woff') format('woff'),
-      url('assets/font/RuneScape-Chat-Bold-07.ttf') format('truetype'),
-      url('assets/font/RuneScape-Chat-Bold-07.svg#RuneScape-Chat-Bold-\'07') format('svg');
+  font-family: "RuneScape Chat Bold '07";
+  src: url("assets/font/RuneScape-Chat-Bold-07.eot");
+  src: url("assets/font/RuneScape-Chat-Bold-07.eot?#iefix")
+      format("embedded-opentype"),
+    url("assets/font/RuneScape-Chat-Bold-07.woff2") format("woff2"),
+    url("assets/font/RuneScape-Chat-Bold-07.woff") format("woff"),
+    url("assets/font/RuneScape-Chat-Bold-07.ttf") format("truetype"),
+    url("assets/font/RuneScape-Chat-Bold-07.svg#RuneScape-Chat-Bold-'07")
+      format("svg");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
-html, body { 
+html,
+body {
   height: 100%;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
-body { 
-  margin: 0; 
-  background-color: rgb(226, 219, 200); 
+body {
+  margin: 0;
+  background-color: rgb(226, 219, 200);
+}
+
+.runescape-font {
+  font-family: "RuneScape Chat Bold '07";
+  font-weight: bolder;
+  font-style: normal;
+  font-size: 1.2em;
+  text-shadow: 2px 2px black;
 }
