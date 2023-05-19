@@ -1,6 +1,11 @@
 <mat-progress-bar *ngIf="!isLoaded" mode="indeterminate"></mat-progress-bar>
 <div *ngIf="isLoaded" class="upper-grid">
-  <div><summary-panel [data]="playerData.summary"></summary-panel></div>
+  <div>
+    <summary-panel
+      [data]="playerData.summary"
+      [shouldUseVirtualLevels]="this.useVirtualLevels"
+    ></summary-panel>
+  </div>
   <div>
     <skills-panel
       [data]="playerData.skills"

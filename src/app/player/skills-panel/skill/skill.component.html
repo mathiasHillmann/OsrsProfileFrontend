@@ -1,9 +1,8 @@
-<mat-card
-  matTooltip="Experience: {{ this.experience | number : '1.0-0' }}"
-  [ngClass]="this.trimClass"
->
-  <mat-card-content class="skill">
+<mat-card matTooltip="Experience: {{ this.experience | number : '1.0-0' }}">
+  <mat-card-content class="skill" [ngClass]="this.trimClass">
     <div><img src="/assets/{{ skillName }}.webp" class="icon" /></div>
-    <div class="level runescape-font">{{ this.level }} / {{ this.max }}</div>
+    <div class="level runescape-font">
+      {{ this.level ?? "-" }} / {{ this.max }}
+    </div>
   </mat-card-content>
 </mat-card>

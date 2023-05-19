@@ -1,7 +1,13 @@
-.upper-grid {
-  display: grid;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr;
-  gap: 1em;
-  height: 40em;
-  padding: 1em;
+:host {
+  width: 1366px;
+  margin: 0 auto;
+  display: block;
+
+  .upper-grid {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    gap: 1em;
+    height: 40em;
+    padding: 1em;
+  }
 }

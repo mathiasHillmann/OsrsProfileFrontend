@@ -14,7 +14,7 @@ export class SkillComponent {
   static readonly MAX_NORMAL_LEVEL: number = 99;
   static readonly MAX_VIRTUAL_LEVEL: number = 126;
 
-  get level(): number {
+  get level(): number | null {
     return this.shouldUseVirtualLevels
       ? this.skill.virtualLevel
       : this.skill.realLevel;
@@ -31,18 +31,20 @@ export class SkillComponent {
   }
 
   get trimClass(): string {
-    if (this.shouldUseVirtualLevels) {
-      if (
-        this.level >= SkillComponent.MAX_NORMAL_LEVEL &&
-        this.level <= SkillComponent.MAX_VIRTUAL_LEVEL
-      ) {
-        return 'silver-trim';
-      } else if (this.level >= SkillComponent.MAX_VIRTUAL_LEVEL) {
-        return 'gold-trim';
-      }
-    } else {
-      if (this.level === SkillComponent.MAX_NORMAL_LEVEL) {
-        return 'gold-trim';
+    if (this.level) {
+      if (this.shouldUseVirtualLevels) {
+        if (
+          this.level >= SkillComponent.MAX_NORMAL_LEVEL &&
+          this.level < SkillComponent.MAX_VIRTUAL_LEVEL
+        ) {
+          return 'silver-trim';
+        } else if (this.level === SkillComponent.MAX_VIRTUAL_LEVEL) {
+          return 'gold-trim';
+        }
+      } else {
+        if (this.level === SkillComponent.MAX_NORMAL_LEVEL) {
+          return 'gold-trim';
+        }
       }
     }
 

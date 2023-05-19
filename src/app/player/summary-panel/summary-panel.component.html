@@ -1,6 +1,76 @@
-<div>Username: {{ data["username"] }}</div>
+<!-- <div>Username: {{ data["username"] }}</div>
 <div>Account type: {{ data["accountType"] }}</div>
 <div>Combat level: {{ data["combat"] }}</div>
 <div>Total level: {{ data["total"]["realLevel"] }}</div>
 <div>Total Experience: {{ data["total"]["experience"] }}</div>
-<div>Last synced at: {{ data["updatedAt"] }}</div>
+<div>Last synced at: {{ data["updatedAt"] }}</div> -->
+<mat-card>
+  <mat-card-header>
+    <div class="runescape-font title">{{ data["username"] }}</div>
+    <img
+      *ngIf="shouldShowBadge"
+      class="icon"
+      [src]="badge"
+      [matTooltip]="badgeTooltip"
+    />
+  </mat-card-header>
+  <mat-card-content>
+    <div class="grid">
+      <summary-card
+        title="Combat level"
+        icon="combat"
+        [text]="this.data['combat']"
+      ></summary-card>
+      <summary-card
+        title="Total level"
+        icon="total"
+        [text]="totalLevel"
+      ></summary-card>
+      <summary-card
+        title="Experience"
+        icon="experience"
+        [text]="experience"
+        class="full-line"
+      ></summary-card>
+      <summary-card
+        title="Quests completed"
+        icon="quest"
+        [text]="
+          this.data['quests']['complete'] + ' / ' + this.data['quests']['total']
+        "
+      ></summary-card>
+      <summary-card
+        title="Achievements completed"
+        icon="diary"
+        [text]="
+          this.data['diary']['complete'] + ' / ' + this.data['diary']['total']
+        "
+        [smallerText]="true"
+      ></summary-card>
+      <summary-card
+        title="Combat tasks completed"
+        icon="combat_achievement"
+        [text]="
+          this.data['combatTasks']['complete'] +
+          ' / ' +
+          this.data['combatTasks']['total']
+        "
+        [smallerText]="true"
+      ></summary-card>
+      <summary-card
+        title="Collections logged"
+        icon="collection_log"
+        [text]="
+          this.data['collection']['complete'] +
+          ' / ' +
+          this.data['collection']['total']
+        "
+      ></summary-card>
+      <summary-card
+        title="Last synced at"
+        [text]="lastSyncTime"
+        class="full-line"
+      ></summary-card>
+    </div>
+  </mat-card-content>
+</mat-card>
