@@ -13,6 +13,7 @@ export interface Skill {
 
 export interface PlayerData {
   skills: Record<string, Skill>;
-  quests: Record<string, QuestStatus>;
+  quest: Record<string, QuestStatus>;
+  miniquest: Record<string, QuestStatus>;
   summary: Record<string, any>;
 }

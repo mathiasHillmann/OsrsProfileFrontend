@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://osrsprofilebackend.test',
+  apiUrl: 'http://api.osrsprofilebackend.test',
 };

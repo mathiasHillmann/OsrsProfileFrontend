@@ -18,6 +18,8 @@ export class HomeComponent {
   ]);
   options: string[] = [];
 
+  backgroundImage: string = '';
+
   constructor(private http: HttpClient, private router: Router) {
     this.search.valueChanges
       .pipe(debounceTime(400), distinctUntilChanged())
@@ -38,6 +40,10 @@ export class HomeComponent {
           }
         },
       });
+
+    this.backgroundImage = `/assets/wallpaper${
+      ((Math.random() * 10) | 0) + 1
+    }.webp`;
   }
 
   shouldShowNoResults(): boolean {
@@ -53,7 +59,6 @@ export class HomeComponent {
   }
 
   getErrorMessage() {
-    console.log(this.search.errors);
     if (this.search.hasError('max')) {
       return 'A RuneScape username has a maximum of 12 characters';
     }
@@ -67,5 +72,17 @@ export class HomeComponent {
 
   onAutocompleteSelection(event: any) {
     this.router.navigate(['/player', event.option.value]);
+  }
+
+  onRandomClick() {
+    this.http
+      .get<HttpResponse<Record<string, string>>>(
+        `${environment.apiUrl}/api/random`
+      )
+      .subscribe({
+        next: (response) => {
+          this.router.navigate(['/player', response.data['username']]);
+        },
+      });
   }
 }

@@ -1,10 +1,10 @@
-mat-card {
+.summary-panel {
   background-color: #453c33;
   height: 30em;
   display: flex;
   align-items: center;
 
-  mat-card-header {
+  .summary-panel-header {
     padding-bottom: 0.5em;
     gap: 1em;
 

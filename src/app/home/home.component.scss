@@ -1,24 +1,98 @@
-.container {
-  width: 100%;
-  height: 90%;
-  display: flex;
-  justify-content: center;
+:host {
+  .body {
+    height: 100vh;
+    overflow-y: scroll;
+    width: 1366px;
+    margin: 0 auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 
-  .form {
-    padding: 5em;
+    .container {
+      width: 100%;
+      height: 20em;
+      display: flex;
+      justify-content: center;
 
-    .form-field {
-      width: 25em;
+      .search-card {
+        margin-top: 5em;
+        margin-bottom: 5em;
+        background-color: #453c33;
+        display: flex;
+        align-items: center;
 
-      .input-button {
-        cursor: pointer;
-        background-color: whitesmoke;
-        border: 0px;
+        .title {
+          color: #ff981f;
+          font-size: 1.5em;
+        }
+
+        .random {
+          cursor: pointer;
+          color: rgb(147, 96, 57);
+          text-decoration: underline;
+          padding-bottom: 0.5em;
+          display: flex;
+          justify-content: center;
+        }
+
+        .search-card-header {
+          padding-bottom: 0.5em;
+        }
+
+        .form {
+          .form-field {
+            width: 25em;
+
+            mat-label {
+              color: #ff981f;
+            }
+
+            .input {
+              color: #f1f100;
+            }
+
+            .input-error {
+              font-size: 0.725em;
+            }
+
+            mat-icon {
+              color: #ff981f;
+              text-shadow: 2px 2px black;
+            }
+          }
+        }
+      }
+    }
+
+    .faq-card {
+      width: 80%;
+      margin: 0 auto;
+      background-color: #453c33;
+
+      .faq-card-header {
+        padding-bottom: 0.5em;
+
+        .title {
+          color: #ff981f;
+          font-size: 1.5em;
+        }
       }
 
-      .input-error {
-        font-size: 0.725em;
+      .faq {
+        .faq-expansion {
+          color: #ff981f;
+          background-color: #554c41;
+          border: solid 1px #6c5f4e;
+
+          .faq-title {
+            color: #ff981f;
+          }
+        }
       }
     }
   }
+}
+
+a {
+  color: rgb(147, 96, 57);
 }

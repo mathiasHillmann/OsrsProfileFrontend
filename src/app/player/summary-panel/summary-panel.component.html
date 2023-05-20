@@ -1,11 +1,5 @@
-<!-- <div>Username: {{ data["username"] }}</div>
-<div>Account type: {{ data["accountType"] }}</div>
-<div>Combat level: {{ data["combat"] }}</div>
-<div>Total level: {{ data["total"]["realLevel"] }}</div>
-<div>Total Experience: {{ data["total"]["experience"] }}</div>
-<div>Last synced at: {{ data["updatedAt"] }}</div> -->
-<mat-card>
-  <mat-card-header>
+<mat-card class="summary-panel">
+  <mat-card-header class="summary-panel-header">
     <div class="runescape-font title">{{ data["username"] }}</div>
     <img
       *ngIf="shouldShowBadge"
@@ -36,7 +30,7 @@
         title="Quests completed"
         icon="quest"
         [text]="
-          this.data['quests']['complete'] + ' / ' + this.data['quests']['total']
+          this.data['quest']['complete'] + ' / ' + this.data['quest']['total']
         "
       ></summary-card>
       <summary-card

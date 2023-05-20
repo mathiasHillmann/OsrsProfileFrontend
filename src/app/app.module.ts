@@ -15,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { HomeComponent } from './home/home.component';
 import { PlayerComponent } from './player/player.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -58,6 +59,7 @@ import { SummaryCardComponent } from './player/summary-panel/summary-card/summar
     MatDialogModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatExpansionModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

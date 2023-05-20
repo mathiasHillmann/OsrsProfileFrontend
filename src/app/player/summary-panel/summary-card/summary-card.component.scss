@@ -1,37 +1,36 @@
-:host {
-  mat-card {
-    background-color: #554c41;
-    border: solid 1px #6c5f4e;
+.summary-card {
+  background-color: #554c41;
+  border: solid 1px #6c5f4e;
+  padding: 0.1em;
+  height: 4.5em;
+
+  .summary-card-header {
+    color: #f49434;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0.1em;
-    height: 4.5em;
 
-    .title {
-      color: #f49434;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0.1em;
-    }
-
-    .card {
-      display: flex;
-      gap: 0.5em;
-      justify-content: center;
-      align-items: center;
-      padding: 0.1em;
-
-      .icon {
-        max-height: 30px;
-        max-width: 30px;
-      }
-
-      .text {
-        color: #11ba10;
-      }
+    &.smaller-text {
+      font-size: 1em;
+      text-shadow: 2px 1px black;
     }
   }
-}
 
-.smaller-text {
-  font-size: 1em !important;
+  .card {
+    display: flex;
+    gap: 0.5em;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1em;
+
+    .icon {
+      max-height: 30px;
+      max-width: 30px;
+    }
+
+    .text {
+      color: #11ba10;
+    }
+  }
 }

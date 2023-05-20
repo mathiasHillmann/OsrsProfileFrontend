@@ -1,0 +1,37 @@
+.quest-panel {
+  background-color: #453c33;
+  height: 30em;
+  display: flex;
+  align-items: center;
+
+  .quest-panel-header {
+    padding-bottom: 0.5em;
+    gap: 1em;
+
+    .title {
+      color: #ff981f;
+      font-size: 1.5em;
+    }
+  }
+
+  .info-grid {
+    display: grid;
+    gap: 0.2em;
+    grid-template-columns: 12em 12em;
+  }
+
+  .quest-list {
+    margin-top: 1em;
+    overflow: scroll;
+    height: 20em;
+    background-color: #554c41;
+    border: solid 1px #6c5f4e;
+
+    .title {
+      color: #ff981f;
+      font-size: 1.25em;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+  }
+}

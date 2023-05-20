@@ -1,3 +1,49 @@
-<div *ngFor="let quest of data | keyvalue">
-  {{ quest.key }}: {{ quest.value }}
-</div>
+<mat-card class="quest-panel">
+  <mat-card-header class="quest-panel-header">
+    <div class="runescape-font title">Quests</div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="info-grid">
+      <summary-card
+        title="Quests completed"
+        icon="quest"
+        [text]="
+          this.summary['quest']['complete'] +
+          ' / ' +
+          this.summary['quest']['total']
+        "
+      ></summary-card>
+      <summary-card
+        title="Miniquests completed"
+        icon="quest"
+        [text]="
+          this.summary['miniquest']['complete'] +
+          ' / ' +
+          this.summary['miniquest']['total']
+        "
+      ></summary-card>
+    </div>
+    <mat-card class="quest-list">
+      <mat-card-content>
+        <div class="runescape-font title">Quests</div>
+        <div *ngFor="let quest of quests | keyvalue">
+          <div
+            class="runescape-font"
+            [style.color]="getQuestColor(quest.value)"
+          >
+            {{ getQuestText(quest.key) }}
+          </div>
+        </div>
+        <div class="runescape-font title">Miniquests</div>
+        <div *ngFor="let miniquest of miniquests | keyvalue">
+          <div
+            class="runescape-font"
+            [style.color]="getQuestColor(miniquest.value)"
+          >
+            {{ getQuestText(miniquest.key) }}
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
