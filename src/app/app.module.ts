@@ -28,6 +28,7 @@ import { SkillComponent } from './player/skills-panel/skill/skill.component';
 import { ConfigComponent } from './config/config.component';
 import { CookieService } from 'ngx-cookie-service';
 import { SummaryCardComponent } from './player/summary-panel/summary-card/summary-card.component';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SummaryCardComponent } from './player/summary-panel/summary-card/summar
     QuestsPanelComponent,
     ConfigComponent,
     SummaryCardComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,

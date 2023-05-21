@@ -54,9 +54,9 @@
               </mat-panel-title>
             </mat-expansion-panel-header>
             <p class="runescape-font">
-              To create your profile all you need to do is install the Osrs
-              Profile plugin in the plugin hub on Runelite and every minute your
-              profile will be synced to our API.
+              To create your profile, install the Osrs Profile plugin from the
+              plugin hub on RuneLite. Your profile will be synced to our API
+              every minute.
             </p>
           </mat-expansion-panel>
           <mat-expansion-panel class="faq-expansion">
@@ -66,16 +66,15 @@
               </mat-panel-title>
             </mat-expansion-panel-header>
             <p class="runescape-font">
-              Send an email to
-              <a href="mailto:osrs.pofile.dev@gmail.com?subject=Profile removal"
-                >osrs.pofile.dev@gmail.com</a
-              >
-              with your username and we will remove it.
+              Please note that you should uninstall the Osrs Profile plugin from
+              RuneLite before requesting the deletion of your profile. If the
+              plugin sends your data to our API after your profile has been
+              removed, your profile will just be created again automatically.
             </p>
             <p class="runescape-font">
-              Please note that you should remove the Osrs Profile plugin from
-              your Runelite before sending an email since if it sends data to
-              our API your profile will just be created again.
+              <a [routerLink]="['/delete']"
+                >Click here to request your profile deletion</a
+              >
             </p>
           </mat-expansion-panel>
           <mat-expansion-panel class="faq-expansion">
@@ -89,13 +88,13 @@
               <a
                 href="https://github.com/mathiasHillmann/OsrsProfileBackend/issues"
                 target="_blank"
-                >in here</a
+                >here</a
               >.
             </p>
             <p class="runescape-font">
               For security issues please send a email to
-              <a href="mailto:osrs.pofile.dev@gmail.com?subject=Security issue"
-                >osrs.pofile.dev@gmail.com</a
+              <a href="mailto:osrs.profile.dev@gmail.com?subject=Security issue"
+                >osrs.profile.dev@gmail.com</a
               >.
             </p>
           </mat-expansion-panel>

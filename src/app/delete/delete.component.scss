@@ -1,0 +1,59 @@
+:host {
+  .body {
+    height: 100vh;
+    overflow-y: scroll;
+    width: 1366px;
+    margin: 0 auto;
+
+    .container {
+      width: 100%;
+      height: 22em;
+      display: flex;
+      justify-content: center;
+
+      .search-card {
+        margin-top: 5em;
+        margin-bottom: 5em;
+        background-color: #453c33;
+        display: flex;
+        align-items: center;
+
+        .title {
+          color: #ff981f;
+          font-size: 1.5em;
+        }
+
+        .random {
+          cursor: pointer;
+          color: rgb(147, 96, 57);
+          text-decoration: underline;
+          padding-bottom: 0.5em;
+          display: flex;
+          justify-content: center;
+        }
+
+        .search-card-header {
+          padding-bottom: 0.5em;
+        }
+
+        .form {
+          .form-field {
+            width: 25em;
+
+            mat-label {
+              color: #ff981f;
+            }
+
+            .input {
+              color: #f1f100;
+            }
+
+            .input-error {
+              font-size: 0.725em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
