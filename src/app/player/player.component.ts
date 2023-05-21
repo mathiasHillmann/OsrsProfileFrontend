@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { HttpResponse } from '../interfaces/http-response';
 import { PlayerData } from '../interfaces/player-data';
 import { MatSnackBar } from '@angular/material/snack-bar';
