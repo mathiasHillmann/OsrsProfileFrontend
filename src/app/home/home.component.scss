@@ -41,7 +41,11 @@
 
         .form {
           .form-field {
-            width: 25em;
+            width: 15em;
+
+            @media (min-width: 768px) { 
+              width: 25em;
+            }
 
             mat-label {
               color: #ff981f;
