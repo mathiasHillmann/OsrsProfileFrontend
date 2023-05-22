@@ -9,9 +9,9 @@
     gap: 1em;
     height: 40em;
     padding: 1em;
-  }
-  
-  @media (min-width: 768px) { 
-    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+
+    @media (min-width: 768px) { 
+      grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    }
   }
 }

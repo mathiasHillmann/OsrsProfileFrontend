@@ -1,8 +1,8 @@
 :host {
   .body {
-    height: 100vh;
-    overflow-y: scroll;
+    height: calc(100% - 64px);
     width: 1366px;
+    max-width: 90%;
     margin: 0 auto;
 
     .container {
@@ -11,7 +11,7 @@
       display: flex;
       justify-content: center;
 
-      .search-card {
+      .delete-card {
         margin-top: 5em;
         margin-bottom: 5em;
         background-color: #453c33;
@@ -32,7 +32,7 @@
           justify-content: center;
         }
 
-        .search-card-header {
+        .delete-card-header {
           padding-bottom: 0.5em;
         }
 

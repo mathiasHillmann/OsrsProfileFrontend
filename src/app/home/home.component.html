@@ -1,125 +1,127 @@
-<div class="body" [ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')' }">
-  <div class="container">
-    <mat-card class="search-card">
-      <mat-card-header class="search-card-header">
-        <div class="runescape-font title">Show stats for</div>
+<div [ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')' }">
+  <div class="body">
+    <div class="container">
+      <mat-card class="search-card">
+        <mat-card-header class="search-card-header">
+          <div class="runescape-font title">Show stats for</div>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="form">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label class="runescape-font">Enter a username</mat-label>
+              <input
+                matInput
+                class="input runescape-font"
+                [formControl]="search"
+                [matAutocomplete]="auto"
+                UsernameInput
+              />
+              <mat-error *ngIf="search.invalid" class="input-error">{{
+                getErrorMessage()
+              }}</mat-error>
+              <mat-autocomplete
+                #auto="matAutocomplete"
+                (optionSelected)="onAutocompleteSelection($event)"
+              >
+                <mat-option *ngFor="let option of options" [value]="option">
+                  {{ option }}
+                </mat-option>
+                <mat-option *ngIf="shouldShowNoResults()" disabled
+                  >No results found</mat-option
+                >
+              </mat-autocomplete>
+              <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+          </form>
+          <div class="random">
+            <div class="runescape-font" (click)="onRandomClick()">
+              Or visit a random profile
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <mat-card class="faq-card">
+      <mat-card-header class="faq-card-header">
+        <div class="runescape-font title">Frequently Asked Questions</div>
       </mat-card-header>
       <mat-card-content>
-        <form class="form">
-          <mat-form-field class="form-field" appearance="outline">
-            <mat-label class="runescape-font">Enter a username</mat-label>
-            <input
-              matInput
-              class="input runescape-font"
-              [formControl]="search"
-              [matAutocomplete]="auto"
-              UsernameInput
-            />
-            <mat-error *ngIf="search.invalid" class="input-error">{{
-              getErrorMessage()
-            }}</mat-error>
-            <mat-autocomplete
-              #auto="matAutocomplete"
-              (optionSelected)="onAutocompleteSelection($event)"
-            >
-              <mat-option *ngFor="let option of options" [value]="option">
-                {{ option }}
-              </mat-option>
-              <mat-option *ngIf="shouldShowNoResults()" disabled
-                >No results found</mat-option
+        <mat-accordion class="faq">
+          <mat-expansion-panel class="faq-expansion">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="runescape-font faq-title">
+                How do I create a profile?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p class="runescape-font">
+              To create your profile, install the Osrs Profile plugin from the
+              plugin hub on RuneLite. Your profile will be synced to our API
+              every minute.
+            </p>
+          </mat-expansion-panel>
+          <mat-expansion-panel class="faq-expansion">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="runescape-font faq-title">
+                How do I remove my profile?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p class="runescape-font">
+              Please note that you should uninstall the Osrs Profile plugin from
+              RuneLite before requesting the deletion of your profile. If the
+              plugin sends your data to our API after your profile has been
+              removed, your profile will just be created again automatically.
+            </p>
+            <p class="runescape-font">
+              <a [routerLink]="['/delete']"
+                >Click here to request your profile deletion</a
               >
-            </mat-autocomplete>
-            <mat-icon matSuffix>search</mat-icon>
-          </mat-form-field>
-        </form>
-        <div class="random">
-          <div class="runescape-font" (click)="onRandomClick()">
-            Or visit a random profile
-          </div>
-        </div>
+            </p>
+          </mat-expansion-panel>
+          <mat-expansion-panel class="faq-expansion">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="runescape-font faq-title">
+                I have found an issue! How do I report it?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p class="runescape-font">
+              You can report any issues or bugs
+              <a
+                href="https://github.com/mathiasHillmann/OsrsProfileBackend/issues"
+                target="_blank"
+                >here</a
+              >.
+            </p>
+            <p class="runescape-font">
+              For security issues please send a email to
+              <a href="mailto:osrs.profile.dev@gmail.com?subject=Security issue"
+                >osrs.profile.dev@gmail.com</a
+              >.
+            </p>
+          </mat-expansion-panel>
+          <mat-expansion-panel class="faq-expansion">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="runescape-font faq-title">
+                Where can I find the source code for the plugin/API/website?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p class="runescape-font">
+              <a href="https://github.com/mathiasHillmann/OsrsProfilePlugin"
+                >Plugin</a
+              >
+            </p>
+            <p class="runescape-font">
+              <a href="https://github.com/mathiasHillmann/OsrsProfileBackend"
+                >API</a
+              >
+            </p>
+            <p class="runescape-font">
+              <a href="https://github.com/mathiasHillmann/OsrsProfileFrontend"
+                >Website</a
+              >
+            </p>
+          </mat-expansion-panel>
+        </mat-accordion>
       </mat-card-content>
     </mat-card>
   </div>
-  <mat-card class="faq-card">
-    <mat-card-header class="faq-card-header">
-      <div class="runescape-font title">Frequently Asked Questions</div>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-accordion class="faq">
-        <mat-expansion-panel class="faq-expansion">
-          <mat-expansion-panel-header>
-            <mat-panel-title class="runescape-font faq-title">
-              How do I create a profile?
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <p class="runescape-font">
-            To create your profile, install the Osrs Profile plugin from the
-            plugin hub on RuneLite. Your profile will be synced to our API
-            every minute.
-          </p>
-        </mat-expansion-panel>
-        <mat-expansion-panel class="faq-expansion">
-          <mat-expansion-panel-header>
-            <mat-panel-title class="runescape-font faq-title">
-              How do I remove my profile?
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <p class="runescape-font">
-            Please note that you should uninstall the Osrs Profile plugin from
-            RuneLite before requesting the deletion of your profile. If the
-            plugin sends your data to our API after your profile has been
-            removed, your profile will just be created again automatically.
-          </p>
-          <p class="runescape-font">
-            <a [routerLink]="['/delete']"
-              >Click here to request your profile deletion</a
-            >
-          </p>
-        </mat-expansion-panel>
-        <mat-expansion-panel class="faq-expansion">
-          <mat-expansion-panel-header>
-            <mat-panel-title class="runescape-font faq-title">
-              I have found an issue! How do I report it?
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <p class="runescape-font">
-            You can report any issues or bugs
-            <a
-              href="https://github.com/mathiasHillmann/OsrsProfileBackend/issues"
-              target="_blank"
-              >here</a
-            >.
-          </p>
-          <p class="runescape-font">
-            For security issues please send a email to
-            <a href="mailto:osrs.profile.dev@gmail.com?subject=Security issue"
-              >osrs.profile.dev@gmail.com</a
-            >.
-          </p>
-        </mat-expansion-panel>
-        <mat-expansion-panel class="faq-expansion">
-          <mat-expansion-panel-header>
-            <mat-panel-title class="runescape-font faq-title">
-              Where can I find the source code for the plugin/API/website?
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <p class="runescape-font">
-            <a href="https://github.com/mathiasHillmann/OsrsProfilePlugin"
-              >Plugin</a
-            >
-          </p>
-          <p class="runescape-font">
-            <a href="https://github.com/mathiasHillmann/OsrsProfileBackend"
-              >API</a
-            >
-          </p>
-          <p class="runescape-font">
-            <a href="https://github.com/mathiasHillmann/OsrsProfileFrontend"
-              >Website</a
-            >
-          </p>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </mat-card-content>
-  </mat-card>
 </div>
