@@ -1,0 +1,52 @@
+:host {
+  .body {
+    height: calc(100vh - 64px);
+    width: 1366px;
+    max-width: 90%;
+    margin: 0 auto;
+
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      .most-viewed-card {
+        margin-top: 2em;
+        background-color: #453c33;
+        display: flex;
+        align-items: center;
+
+        .title {
+          color: #ff981f;
+          font-size: 1.5em;
+        }
+
+        .most-viewed-card-header {
+          padding-bottom: 0.5em;
+        }
+
+        .mat-mdc-table {
+          margin-top: 1em;
+          background-color: rgb(216, 204, 180);
+
+          .mat-mdc-header-row .mat-mdc-header-cell {
+            background-color: rgb(184, 162, 130);
+          }
+
+          .mat-mdc-row .mat-mdc-cell {
+            border-bottom: 1px solid rgb(148, 134, 109);
+            border-top: 1px solid rgb(148, 134, 109);
+            border-collapse: collapse;
+          }
+
+          .mat-mdc-row:hover .mat-mdc-cell {
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            border-collapse: collapse;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

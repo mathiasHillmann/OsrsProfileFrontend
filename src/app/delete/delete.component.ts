@@ -1,11 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { HttpResponse } from '../interfaces/http-response';
-import { environment } from 'src/environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { HttpError, HttpMethod, HttpService } from '../services/http.service';
 
 @Component({
   selector: 'delete',
@@ -18,8 +16,11 @@ export class DeleteComponent {
     Validators.max(12),
   ]);
 
+  @Output()
+  loading: Subject<boolean> = new Subject<boolean>();
+
   constructor(
-    private http: HttpClient,
+    private httpService: HttpService,
     private router: Router,
     private snackBar: MatSnackBar
   ) {}
@@ -43,25 +44,26 @@ export class DeleteComponent {
 
     const username: string = this.username.value;
 
-    this.http.post(`${environment.apiUrl}/api/delete`, { username }).subscribe({
-      next: (response) => {
-        this.snackBar.open(
-          'Your request has been sent and will be processed as soon as possible',
-          undefined,
-          { duration: 5000 }
-        );
+    this.loading.next(true);
+    this.httpService
+      .request(HttpMethod.Post, 'delete', { username })
+      .subscribe({
+        next: () => {
+          this.snackBar.open(
+            'Your request has been sent and will be processed as soon as possible',
+            undefined,
+            { duration: 5000 }
+          );
 
-        this.router.navigate(['/']);
-      },
-      error: () => {
-        this.snackBar.open(
-          'There was an error trying to request the deletion of your profile',
-          undefined,
-          { duration: 5000 }
-        );
+          this.loading.next(false);
+          this.router.navigate(['/']);
+        },
+        error: (error: HttpError) => {
+          this.httpService.defaultErrorHandling(error);
+          this.loading.next(false);
 
-        this.router.navigate(['/']);
-      },
-    });
+          this.router.navigate(['/']);
+        },
+      });
   }
 }

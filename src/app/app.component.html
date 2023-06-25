@@ -1,10 +1,33 @@
 <div class="container">
   <mat-toolbar>
-    <div (click)="onLogoClick()" class="runescape-font">OSRSProfile</div>
-    <span class="spacer"></span>
-    <button mat-icon-button (click)="onCogClick()" aria-label="Configuration">
-      <mat-icon>settings</mat-icon>
+    <button mat-icon-button (click)="sidenav.toggle()" class="menu-icon">
+      <mat-icon>menu</mat-icon>
     </button>
+    <div (click)="onLogoClick()" class="runescape-font logo">OSRSProfile</div>
+    <div class="menu">
+      <div>
+        <a mat-button [routerLink]="['/most-viewed']"> Most viewed </a>
+      </div>
+      <span class="spacer"> </span>
+      <button mat-icon-button (click)="onCogClick()" aria-label="Configuration">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
   </mat-toolbar>
-  <router-outlet></router-outlet>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+  <mat-sidenav-container>
+    <mat-sidenav-content>
+      <main>
+        <router-outlet (activate)="componentAdded($event)"></router-outlet>
+      </main>
+    </mat-sidenav-content>
+
+    <mat-sidenav #sidenav mode="over">
+      <mat-nav-list class="nav-list">
+        <a mat-list-item [routerLink]="['/most-viewed']"> Most viewed </a>
+        <a mat-list-item (click)="onCogClick()"> Settings </a>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
 </div>

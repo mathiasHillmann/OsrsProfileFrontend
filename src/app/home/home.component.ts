@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { HttpResponse } from '../interfaces/http-response';
-import { environment } from 'src/environments/environment';
+import { HttpError, HttpMethod, HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-home',
@@ -18,21 +18,30 @@ export class HomeComponent {
   ]);
   options: string[] = [];
 
+  @Output()
+  loading: Subject<boolean> = new Subject<boolean>();
+
   backgroundImage: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private httpService: HttpService, private router: Router) {
+    this.loading.next(true);
     this.search.valueChanges
       .pipe(debounceTime(400), distinctUntilChanged())
       .subscribe({
         next: (value) => {
           if (value && this.search.valid) {
-            this.http
-              .get<HttpResponse<string[]>>(
-                `${environment.apiUrl}/api/search/${value}`
-              )
+            this.loading.next(true);
+
+            this.httpService
+              .request(HttpMethod.Get, `search/${value}`)
               .subscribe({
-                next: (response) => {
+                next: (response: HttpResponse<string[]>) => {
                   this.options = response.data;
+                  this.loading.next(false);
+                },
+                error: (error: HttpError) => {
+                  this.httpService.defaultErrorHandling(error);
+                  this.loading.next(false);
                 },
               });
           } else {
@@ -75,14 +84,16 @@ export class HomeComponent {
   }
 
   onRandomClick() {
-    this.http
-      .get<HttpResponse<Record<string, string>>>(
-        `${environment.apiUrl}/api/random`
-      )
-      .subscribe({
-        next: (response) => {
-          this.router.navigate(['/player', response.data['username']]);
-        },
-      });
+    this.loading.next(true);
+    this.httpService.request(HttpMethod.Get, 'random').subscribe({
+      next: (response: HttpResponse<Record<string, string>>) => {
+        this.loading.next(false);
+        this.router.navigate(['/player', response.data['username']]);
+      },
+      error: (error: HttpError) => {
+        this.httpService.defaultErrorHandling(error);
+        this.loading.next(false);
+      },
+    });
   }
 }

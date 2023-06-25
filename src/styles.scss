@@ -58,3 +58,10 @@ body {
   font-size: 1.2em;
   text-shadow: 2px 2px black;
 }
+
+.error-snackbar {
+  padding: 5em;
+  margin: 2em;
+  --mdc-snackbar-container-color: #f44336;
+  color: white;
+}
