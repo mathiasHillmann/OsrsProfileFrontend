@@ -1,19 +1,51 @@
 .container {
   height: 100vh;
-  background-color: rgb(226, 219, 200);
 
   .mat-toolbar {
     font-size: 2em;
     color: rgb(82, 53, 30);
     background-color: #c1a983;
 
-    div {
+    .logo {
       cursor: pointer;
       padding: 0.5em;
     }
 
-    .spacer {
+    .menu {
+      display: flex;
       flex: 1 1 auto;
+      align-items: center;
+
+      .spacer {
+        flex: 1 1 auto;
+      }
+
+      a {
+        font-size: 0.6em;
+        text-decoration: none;
+      }
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
+
+  .menu-icon {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  mat-sidenav {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    width: 200px;
+    background-color: #c1a983;
+  }
+}
+
+.mat-drawer-content {
+  background-color: rgb(226, 219, 200);
 }

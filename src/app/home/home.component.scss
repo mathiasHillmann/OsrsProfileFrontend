@@ -1,6 +1,6 @@
 :host {
   .body {
-    height: calc(100vh - 64px);
+    min-height: calc(100vh - 64px);
     width: 1366px;
     max-width: 90%;
     margin: 0 auto;
@@ -43,7 +43,7 @@
           .form-field {
             width: 15em;
 
-            @media (min-width: 768px) { 
+            @media (min-width: 768px) {
               width: 25em;
             }
 
