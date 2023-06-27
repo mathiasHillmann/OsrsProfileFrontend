@@ -1,5 +1,5 @@
-.container {
-  height: 100vh;
+.toolbar {
+  position: relative;
 
   .mat-toolbar {
     font-size: 2em;
@@ -31,19 +31,24 @@
     }
   }
 
-  .menu-icon {
-    @media (min-width: 768px) {
-      display: none;
-    }
+  .mat-mdc-progress-bar {
+    position: absolute;
+    bottom: 0;
   }
+}
 
-  mat-sidenav {
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 auto;
-    width: 200px;
-    background-color: #c1a983;
+.menu-icon {
+  @media (min-width: 768px) {
+    display: none;
   }
+}
+
+mat-sidenav {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  width: 200px;
+  background-color: #c1a983;
 }
 
 .mat-drawer-content {

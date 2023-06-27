@@ -1,12 +1,7 @@
 <mat-card class="summary-panel">
   <mat-card-header class="summary-panel-header">
     <div class="runescape-font title">{{ data["username"] }}</div>
-    <img
-      *ngIf="shouldShowBadge"
-      class="icon"
-      [src]="badge"
-      [matTooltip]="badgeTooltip"
-    />
+    <account-badge [accountType]="this.data['accountType']"></account-badge>
   </mat-card-header>
   <mat-card-content>
     <div class="grid">

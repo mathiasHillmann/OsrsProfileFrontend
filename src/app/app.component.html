@@ -1,4 +1,4 @@
-<div class="container">
+<div class="toolbar">
   <mat-toolbar>
     <button mat-icon-button (click)="sidenav.toggle()" class="menu-icon">
       <mat-icon>menu</mat-icon>
@@ -16,7 +16,7 @@
   </mat-toolbar>
   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
-  <mat-sidenav-container>
+  <mat-sidenav-container [hasBackdrop]="true">
     <mat-sidenav-content>
       <main>
         <router-outlet (activate)="componentAdded($event)"></router-outlet>
@@ -25,8 +25,14 @@
 
     <mat-sidenav #sidenav mode="over">
       <mat-nav-list class="nav-list">
-        <a mat-list-item [routerLink]="['/most-viewed']"> Most viewed </a>
-        <a mat-list-item (click)="onCogClick()"> Settings </a>
+        <a
+          mat-list-item
+          (click)="sidenav.close()"
+          [routerLink]="['/most-viewed']"
+        >
+          Most viewed
+        </a>
+        <a mat-list-item (click)="sidenav.close(); onCogClick()"> Settings </a>
       </mat-nav-list>
     </mat-sidenav>
   </mat-sidenav-container>

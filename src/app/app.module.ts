@@ -31,6 +31,7 @@ import { PlayerComponent } from './player/player.component';
 import { QuestsPanelComponent } from './player/quests-panel/quests-panel.component';
 import { SkillComponent } from './player/skills-panel/skill/skill.component';
 import { SkillsPanelComponent } from './player/skills-panel/skills-panel.component';
+import { AccountBadgeComponent } from './player/summary-panel/account-badge/account-badge.component';
 import { SummaryCardComponent } from './player/summary-panel/summary-card/summary-card.component';
 import { SummaryPanelComponent } from './player/summary-panel/summary-panel.component';
 import { HttpService } from './services/http.service';
@@ -46,6 +47,7 @@ import { HttpService } from './services/http.service';
     SkillComponent,
     QuestsPanelComponent,
     ConfigComponent,
+    AccountBadgeComponent,
     SummaryCardComponent,
     DeleteComponent,
     MostViewedComponent,

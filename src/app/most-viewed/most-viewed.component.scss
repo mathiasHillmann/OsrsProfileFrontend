@@ -37,6 +37,19 @@
             border-bottom: 1px solid rgb(148, 134, 109);
             border-top: 1px solid rgb(148, 134, 109);
             border-collapse: collapse;
+
+            &.username {
+              margin-right: 24px;
+
+              account-badge {
+                margin-left: 0.5em;
+                position: absolute;
+              }
+            }
+
+            &.views {
+              text-align: right;
+            }
           }
 
           .mat-mdc-row:hover .mat-mdc-cell {

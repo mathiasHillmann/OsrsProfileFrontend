@@ -1,9 +1,9 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Component, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { Subject, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { PlayerData } from '../interfaces/player-data';
 import {
   HttpError,
@@ -17,9 +17,8 @@ import {
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss'],
 })
-export class PlayerComponent implements OnDestroy, OnInit {
-  private sub: Subscription;
-  private username!: string;
+export class PlayerComponent implements OnInit {
+  private username!: string | null;
   playerData!: PlayerData;
   useVirtualLevels: boolean = false;
 
@@ -37,15 +36,20 @@ export class PlayerComponent implements OnDestroy, OnInit {
     private snackBar: MatSnackBar,
     private cookieService: CookieService
   ) {
-    this.sub = this.route.params.subscribe(
-      (params) => (this.username = params['username'])
-    );
+    this.username = this.route.snapshot.paramMap.get('username');
 
-    if (this.cookieService.check('virtualLevels')) {
+    const virtualLevel = localStorage.getItem('virtualLevels');
+    if (virtualLevel) {
       this.useVirtualLevels = coerceBooleanProperty(
-        this.cookieService.get('virtualLevels')
+        localStorage.getItem('virtualLevels')
       );
     }
+
+    window.addEventListener('storage', () => {
+      this.useVirtualLevels = coerceBooleanProperty(
+        localStorage.getItem('virtualLevels')
+      );
+    });
   }
 
   ngOnInit(): void {
@@ -74,11 +78,5 @@ export class PlayerComponent implements OnDestroy, OnInit {
           this.router.navigate(['/']);
         },
       });
-  }
-
-  ngOnDestroy() {
-    if (this.sub) {
-      this.sub.unsubscribe();
-    }
   }
 }
