@@ -19,7 +19,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConfigComponent } from './config/config.component';
@@ -27,6 +26,8 @@ import { DeleteComponent } from './delete/delete.component';
 import { UsernameInputDirective } from './directives/username-input.directive';
 import { HomeComponent } from './home/home.component';
 import { MostViewedComponent } from './most-viewed/most-viewed.component';
+import { DiariesPanelComponent } from './player/diaries-panel/diaries-panel.component';
+import { DiaryComponent } from './player/diaries-panel/diary/diary.component';
 import { PlayerComponent } from './player/player.component';
 import { QuestsPanelComponent } from './player/quests-panel/quests-panel.component';
 import { SkillComponent } from './player/skills-panel/skill/skill.component';
@@ -40,8 +41,11 @@ import { HttpService } from './services/http.service';
   declarations: [
     AppComponent,
     HomeComponent,
+    DeleteComponent,
+    MostViewedComponent,
     PlayerComponent,
     UsernameInputDirective,
+
     SummaryPanelComponent,
     SkillsPanelComponent,
     SkillComponent,
@@ -49,8 +53,8 @@ import { HttpService } from './services/http.service';
     ConfigComponent,
     AccountBadgeComponent,
     SummaryCardComponent,
-    DeleteComponent,
-    MostViewedComponent,
+    DiariesPanelComponent,
+    DiaryComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,7 @@ import { HttpService } from './services/http.service';
     MatListModule,
     MatTableModule,
   ],
-  providers: [CookieService, HttpService],
+  providers: [HttpService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

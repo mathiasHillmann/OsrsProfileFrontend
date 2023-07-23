@@ -1,11 +1,11 @@
 .skills-panel {
-  background-color: #453c33;
+  background-color: var(--dark-brown);
   height: 30em;
   display: flex;
   align-items: center;
 
   .skills-panel-header {
-    color: #ff981f;
+    color: var(--orange);
     font-size: 1.5em;
     padding-bottom: 0.5em;
   }

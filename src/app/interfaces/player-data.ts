@@ -11,9 +11,22 @@ export interface Skill {
   experience: number;
 }
 
+export interface Quest {
+  status: QuestStatus;
+  text: string;
+}
+
+export interface Diary {
+  easy: boolean;
+  medium: boolean;
+  hard: boolean;
+  elite: boolean;
+}
+
 export interface PlayerData {
   skills: Record<string, Skill>;
-  quest: Record<string, QuestStatus>;
-  miniquest: Record<string, QuestStatus>;
+  quest: Record<string, Quest>;
+  miniquest: Record<string, Quest>;
   summary: Record<string, any>;
+  diaries: Record<string, Diary>;
 }

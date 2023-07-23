@@ -12,12 +12,12 @@
 
       .most-viewed-card {
         margin-top: 2em;
-        background-color: #453c33;
+        background-color: var(--dark-brown);
         display: flex;
         align-items: center;
 
         .title {
-          color: #ff981f;
+          color: var(--orange);
           font-size: 1.5em;
         }
 

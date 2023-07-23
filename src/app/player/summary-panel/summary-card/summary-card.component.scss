@@ -1,11 +1,11 @@
 .summary-card {
-  background-color: #554c41;
-  border: solid 1px #6c5f4e;
+  background-color: var(--brown);
+  border: solid 1px var(--light-brown);
   padding: 0.1em;
   height: 4.5em;
 
   .summary-card-header {
-    color: #f49434;
+    color: var(--orange);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,7 @@
     }
 
     .text {
-      color: #11ba10;
+      color: var(--green);
     }
   }
 }

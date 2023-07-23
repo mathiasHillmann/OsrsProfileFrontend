@@ -14,12 +14,12 @@
       .delete-card {
         margin-top: 5em;
         margin-bottom: 5em;
-        background-color: #453c33;
+        background-color: var(--dark-brown);
         display: flex;
         align-items: center;
 
         .title {
-          color: #ff981f;
+          color: var(--orange);
           font-size: 1.5em;
         }
 
@@ -32,11 +32,11 @@
             width: 25em;
 
             mat-label {
-              color: #ff981f;
+              color: var(--orange);
             }
 
             .input {
-              color: #f1f100;
+              color: var(--yellow);
             }
 
             .input-error {

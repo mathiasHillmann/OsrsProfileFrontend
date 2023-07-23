@@ -2,7 +2,6 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 import { Subject } from 'rxjs';
 import { PlayerData } from '../interfaces/player-data';
 import {
@@ -33,8 +32,7 @@ export class PlayerComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private httpService: HttpService,
-    private snackBar: MatSnackBar,
-    private cookieService: CookieService
+    private snackBar: MatSnackBar
   ) {
     this.username = this.route.snapshot.paramMap.get('username');
 

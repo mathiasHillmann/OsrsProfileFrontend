@@ -17,12 +17,12 @@
       .search-card {
         margin-top: 5em;
         margin-bottom: 5em;
-        background-color: #453c33;
+        background-color: var(--dark-brown);
         display: flex;
         align-items: center;
 
         .title {
-          color: #ff981f;
+          color: var(--orange);
           font-size: 1.5em;
         }
 
@@ -48,11 +48,11 @@
             }
 
             mat-label {
-              color: #ff981f;
+              color: var(--orange);
             }
 
             .input {
-              color: #f1f100;
+              color: var(--yellow);
             }
 
             .input-error {
@@ -60,7 +60,7 @@
             }
 
             mat-icon {
-              color: #ff981f;
+              color: var(--orange);
               text-shadow: 2px 2px black;
             }
           }
@@ -71,25 +71,25 @@
     .faq-card {
       width: 80%;
       margin: 0 auto;
-      background-color: #453c33;
+      background-color: var(--dark-brown);
 
       .faq-card-header {
         padding-bottom: 0.5em;
 
         .title {
-          color: #ff981f;
+          color: var(--orange);
           font-size: 1.5em;
         }
       }
 
       .faq {
         .faq-expansion {
-          color: #ff981f;
-          background-color: #554c41;
-          border: solid 1px #6c5f4e;
+          color: var(--orange);
+          background-color: var(--brown);
+          border: solid 1px var(--light-brown);
 
           .faq-title {
-            color: #ff981f;
+            color: var(--orange);
           }
         }
       }
@@ -98,5 +98,5 @@
 }
 
 a {
-  color: rgb(147, 96, 57);
+  color: var(--link-brown);
 }

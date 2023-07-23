@@ -1,10 +1,10 @@
-.quest-panel {
+.diaries-panel {
   background-color: var(--dark-brown);
   height: 30em;
   display: flex;
   align-items: center;
 
-  .quest-panel-header {
+  .diaries-panel-header {
     padding-bottom: 0.5em;
     gap: 1em;
 
@@ -14,30 +14,24 @@
     }
   }
 
-  .info-grid {
-    display: grid;
-    gap: 0.2em;
-    grid-template-columns: 50% 50%;
-  }
-
-  .quest-list {
+  .diaries-list {
     margin-top: 1em;
     overflow-y: scroll;
-    height: 20em;
+    height: 25em;
+    min-width: 20em;
     background-color: var(--brown);
     border: solid 1px var(--light-brown);
 
-    .title {
-      color: var(--orange);
-      font-size: 1.25em;
-      padding-bottom: 0.5em;
+    .grid {
+      display: grid;
+      grid-template-rows: auto;
+      gap: 0.2em;
 
-      &:first-child {
-        padding-top: 0em;
-      }
-
-      &:not(:first-child) {
+      .title {
+        color: var(--orange);
+        font-size: 1.25em;
         padding-top: 0.5em;
+        padding-bottom: 0.5em;
       }
     }
   }

@@ -1,4 +1,4 @@
-<div *ngIf="isLoaded" class="upper-grid">
+<div *ngIf="isLoaded" class="grid">
   <div>
     <summary-panel
       [data]="playerData.summary"
@@ -17,5 +17,8 @@
       [miniquests]="playerData.miniquest"
       [summary]="playerData.summary"
     ></quests-panel>
+  </div>
+  <div>
+    <diaries-panel [diaries]="playerData.diaries"></diaries-panel>
   </div>
 </div>

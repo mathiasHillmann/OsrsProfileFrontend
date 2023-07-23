@@ -1,6 +1,16 @@
 @use "@angular/material" as mat;
 @include mat.core();
 
+:root {
+  --orange: #ff981f;
+  --yellow: #f1f100;
+  --dark-brown: #453c33;
+  --brown: #554c41;
+  --light-brown: #6c5f4e;
+  --link-brown: rgb(147, 96, 57);
+  --green: #11ba10;
+}
+
 $OsrsProfileFrontend-primary: mat.define-palette(mat.$indigo-palette);
 $OsrsProfileFrontend-accent: mat.define-palette(
   mat.$pink-palette,

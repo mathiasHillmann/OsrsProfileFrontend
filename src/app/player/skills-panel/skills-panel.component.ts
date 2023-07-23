@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Skill } from 'src/app/interfaces/player-data';
+import { PlayerData } from 'src/app/interfaces/player-data';
 
 @Component({
   selector: 'skills-panel',
@@ -7,6 +7,6 @@ import { Skill } from 'src/app/interfaces/player-data';
   styleUrls: ['./skills-panel.component.scss'],
 })
 export class SkillsPanelComponent {
-  @Input() data!: Record<string, Skill>;
+  @Input() data!: PlayerData['skills'];
   @Input() shouldUseVirtualLevels!: boolean;
 }

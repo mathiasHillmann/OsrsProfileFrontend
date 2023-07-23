@@ -1,5 +1,6 @@
 import { formatNumber } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { PlayerData } from 'src/app/interfaces/player-data';
 
 @Component({
   selector: 'summary-panel',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./summary-panel.component.scss'],
 })
 export class SummaryPanelComponent {
-  @Input() data!: Record<string, any>;
+  @Input() data!: PlayerData['summary'];
   @Input() shouldUseVirtualLevels!: boolean;
 
   get totalLevel(): string {

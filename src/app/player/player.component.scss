@@ -1,16 +1,17 @@
 :host {
   width: 1366px;
+  min-height: calc(100vh - 64px);
   max-width: 90%;
   margin: 0 auto;
   display: block;
 
-  .upper-grid {
+  .grid {
     display: grid;
     gap: 1em;
     height: 40em;
     padding: 1em;
 
-    @media (min-width: 768px) { 
+    @media (min-width: 768px) {
       grid-template-columns: 0.5fr 0.5fr 0.5fr;
     }
   }

@@ -1,0 +1,34 @@
+<mat-card class="diaries-panel">
+  <mat-card-header class="diaries-panel-header">
+    <div class="runescape-font title">Achievement Diaries</div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card class="diaries-list">
+      <mat-card-content>
+        <div class="grid">
+          <diary [diary]="diaries['ardougne']" diaryName="Ardougne"></diary>
+          <diary [diary]="diaries['desert']" diaryName="Desert"></diary>
+          <diary [diary]="diaries['falador']" diaryName="Falador"></diary>
+          <diary [diary]="diaries['fremennik']" diaryName="Fremennik"></diary>
+          <diary [diary]="diaries['kandarin']" diaryName="Kandarin"></diary>
+          <diary [diary]="diaries['karamja']" diaryName="Karamja"></diary>
+          <diary
+            [diary]="diaries['kourend']"
+            diaryName="Kourend & Kebos"
+          ></diary>
+          <diary
+            [diary]="diaries['lumbridge']"
+            diaryName="Lumbridge & Draynor"
+          ></diary>
+          <diary [diary]="diaries['morytania']" diaryName="Morytania"></diary>
+          <diary [diary]="diaries['varrock']" diaryName="Varrock"></diary>
+          <diary
+            [diary]="diaries['western']"
+            diaryName="Western Provinces"
+          ></diary>
+          <diary [diary]="diaries['wilderness']" diaryName="Wilderness"></diary>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

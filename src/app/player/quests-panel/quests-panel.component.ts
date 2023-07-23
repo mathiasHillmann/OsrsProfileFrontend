@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { QuestStatus, Skill } from 'src/app/interfaces/player-data';
+import { PlayerData, QuestStatus } from 'src/app/interfaces/player-data';
 
 @Component({
   selector: 'quests-panel',
@@ -7,15 +7,9 @@ import { QuestStatus, Skill } from 'src/app/interfaces/player-data';
   styleUrls: ['./quests-panel.component.scss'],
 })
 export class QuestsPanelComponent {
-  @Input() quests!: Record<string, QuestStatus>;
-  @Input() miniquests!: Record<string, QuestStatus>;
-  @Input() summary!: Record<string, any>;
-
-  getQuestText(quest: string) {
-    return quest.replace(/^_*(.)|_+(.)/g, (s, c, d) =>
-      c ? c.toUpperCase() : ' ' + d.toUpperCase()
-    );
-  }
+  @Input() quests!: PlayerData['quest'];
+  @Input() miniquests!: PlayerData['miniquest'];
+  @Input() summary!: PlayerData['summary'];
 
   getQuestColor(status: string) {
     if (status === QuestStatus.Complete) {

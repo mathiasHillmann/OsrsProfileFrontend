@@ -31,18 +31,18 @@
         <div *ngFor="let quest of quests | keyvalue">
           <div
             class="runescape-font"
-            [style.color]="getQuestColor(quest.value)"
+            [style.color]="getQuestColor(quest.value['status'])"
           >
-            {{ getQuestText(quest.key) }}
+            {{ quest.value["text"] }}
           </div>
         </div>
         <div class="runescape-font title">Miniquests</div>
         <div *ngFor="let miniquest of miniquests | keyvalue">
           <div
             class="runescape-font"
-            [style.color]="getQuestColor(miniquest.value)"
+            [style.color]="getQuestColor(miniquest.value['status'])"
           >
-            {{ getQuestText(miniquest.key) }}
+            {{ miniquest.value["text"] }}
           </div>
         </div>
       </mat-card-content>

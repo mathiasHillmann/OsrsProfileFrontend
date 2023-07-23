@@ -2,8 +2,8 @@
   padding: 0.3em;
   display: flex;
   gap: 0.5em;
-  background-color: #554c41;
-  border: solid 1px #6c5f4e;
+  background-color: var(--brown);
+  border: solid 1px var(--light-brown);
   min-height: 2.3em;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@
   }
 
   .level {
-    color: #f1f100;
+    color: var(--yellow);
   }
 }
 

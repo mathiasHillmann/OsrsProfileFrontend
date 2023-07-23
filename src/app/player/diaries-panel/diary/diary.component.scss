@@ -1,0 +1,25 @@
+.diary {
+  padding: 0.3em;
+  background-color: var(--brown);
+  border: solid 1px var(--light-brown);
+
+  .content {
+    width: 100%;
+
+    .title {
+      margin-bottom: 0.25em;
+    }
+
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(4, 25%);
+
+      .tier {
+        min-width: 2em;
+        max-width: 30em;
+        height: 0.5em;
+        border: 1px solid black;
+      }
+    }
+  }
+}
