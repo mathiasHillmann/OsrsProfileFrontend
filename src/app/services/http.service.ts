@@ -61,22 +61,22 @@ export class HttpService {
 
         case HttpStatusCode.BadRequest:
           subscriber.error({
-            message: error.message,
-            error: error.error,
+            message: error.error?.message,
+            error: error.error?.error,
           });
           break;
 
         case HttpStatusCode.TooManyRequests:
           subscriber.error({
             message: 'Too many attempts, please try again in a minute',
-            error: error.error,
+            error: error.error?.error,
           });
           break;
 
         default:
           subscriber.error({
             message: 'An uknown error occured in the API',
-            error: error.error,
+            error: error.error?.error,
           });
           break;
       }
