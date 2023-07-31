@@ -50,9 +50,9 @@ export class MinigamesPanelComponent implements AfterViewInit {
     this.changeDetector.detectChanges();
   }
 
-  formatKc(kc?: number): string {
-    if (kc) {
-      return formatNumber(kc, this.locale, '1.0-0');
+  formatScore(score?: number): string {
+    if (score) {
+      return formatNumber(score, this.locale, '1.0-0');
     } else {
       return '-';
     }
