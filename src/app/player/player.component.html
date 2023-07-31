@@ -5,12 +5,14 @@
       [shouldUseVirtualLevels]="this.useVirtualLevels"
     ></summary-panel>
   </div>
+
   <div>
     <skills-panel
       [data]="playerData.skills"
       [shouldUseVirtualLevels]="this.useVirtualLevels"
     ></skills-panel>
   </div>
+
   <div>
     <quests-panel
       [quests]="playerData.quest"
@@ -18,7 +20,16 @@
       [summary]="playerData.summary"
     ></quests-panel>
   </div>
+
   <div>
     <diaries-panel [diaries]="playerData.diaries"></diaries-panel>
+  </div>
+
+  <div>
+    <bosses-panel [bosses]="playerData.bosses"></bosses-panel>
+  </div>
+
+  <div>
+    <minigames-panel [minigames]="playerData.minigames"></minigames-panel>
   </div>
 </div>

@@ -23,10 +23,23 @@ export interface Diary {
   elite: boolean;
 }
 
+export interface Boss {
+  text: string;
+  kc: number;
+  pb: number;
+}
+
+export interface Minigame {
+  text: string;
+  score: number;
+}
+
 export interface PlayerData {
   skills: Record<string, Skill>;
   quest: Record<string, Quest>;
   miniquest: Record<string, Quest>;
   summary: Record<string, any>;
   diaries: Record<string, Diary>;
+  bosses: Record<string, Boss>;
+  minigames: Record<string, Minigame>;
 }

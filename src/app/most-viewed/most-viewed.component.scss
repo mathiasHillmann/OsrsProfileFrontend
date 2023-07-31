@@ -24,42 +24,24 @@
         .most-viewed-card-header {
           padding-bottom: 0.5em;
         }
-
-        .mat-mdc-table {
-          margin-top: 1em;
-          background-color: rgb(216, 204, 180);
-
-          .mat-mdc-header-row .mat-mdc-header-cell {
-            background-color: rgb(184, 162, 130);
-          }
-
-          .mat-mdc-row .mat-mdc-cell {
-            border-bottom: 1px solid rgb(148, 134, 109);
-            border-top: 1px solid rgb(148, 134, 109);
-            border-collapse: collapse;
-
-            &.username {
-              margin-right: 24px;
-
-              account-badge {
-                margin-left: 0.5em;
-                position: absolute;
-              }
-            }
-
-            &.views {
-              text-align: right;
-            }
-          }
-
-          .mat-mdc-row:hover .mat-mdc-cell {
-            border-bottom: 1px solid black;
-            border-top: 1px solid black;
-            border-collapse: collapse;
-            cursor: pointer;
-          }
-        }
       }
     }
+  }
+}
+
+.mat-mdc-table {
+  margin-top: 1em;
+
+  .username {
+    margin-right: 24px;
+
+    account-badge {
+      margin-left: 0.5em;
+      position: absolute;
+    }
+  }
+
+  .views {
+    text-align: right;
   }
 }

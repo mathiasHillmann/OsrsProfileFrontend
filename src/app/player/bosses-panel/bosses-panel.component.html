@@ -1,0 +1,41 @@
+<mat-card class="bosses-panel">
+  <mat-card-header class="bosses-panel-header">
+    <div class="runescape-font title">Boss Killcounts</div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card class="bosses-list">
+      <mat-card-content>
+        <table
+          mat-table
+          [dataSource]="dataSource"
+          class="mat-elevation-z8"
+          matSort
+        >
+          <ng-container matColumnDef="text">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Boss</th>
+            <td mat-cell class="username" *matCellDef="let element">
+              <span>{{ element.text }} </span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="kc">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>KC</th>
+            <td mat-cell class="views" *matCellDef="let element">
+              {{ element.kc | number : "1.0-0" }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="pb">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>PB</th>
+            <td mat-cell class="views" *matCellDef="let element">
+              {{ formatPb(element.pb) }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

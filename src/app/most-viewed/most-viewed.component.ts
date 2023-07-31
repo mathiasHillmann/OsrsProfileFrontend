@@ -1,12 +1,12 @@
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import {
   HttpError,
   HttpMethod,
   HttpResponse,
   HttpService,
 } from '../services/http.service';
+import { LoadingService } from '../services/loading.service';
 
 interface Player {
   rank: number;
@@ -20,25 +20,27 @@ interface Player {
   styleUrls: ['./most-viewed.component.scss'],
 })
 export class MostViewedComponent {
-  @Output()
-  loading: Subject<boolean> = new Subject<boolean>();
   players: Player[] = [];
 
   displayedColumns: string[] = ['demo-rank', 'demo-username', 'demo-views'];
 
-  constructor(private httpService: HttpService, private router: Router) {
-    setTimeout(() => this.loading.next(true));
+  constructor(
+    private httpService: HttpService,
+    private router: Router,
+    private loadingService: LoadingService
+  ) {
+    setTimeout(() => this.loadingService.setLoading(true));
 
     this.httpService.request(HttpMethod.Get, 'most-viewed').subscribe({
       next: (response: HttpResponse<Player[]>) => {
         this.players = response.data;
 
-        this.loading.next(false);
+        this.loadingService.setLoading(false);
       },
       error: (error: HttpError) => {
         this.httpService.defaultErrorHandling(error);
 
-        this.loading.next(false);
+        this.loadingService.setLoading(false);
       },
     });
   }

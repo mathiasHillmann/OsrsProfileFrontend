@@ -1,9 +1,9 @@
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { HttpError, HttpMethod, HttpService } from '../services/http.service';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'delete',
@@ -16,13 +16,11 @@ export class DeleteComponent {
     Validators.max(12),
   ]);
 
-  @Output()
-  loading: Subject<boolean> = new Subject<boolean>();
-
   constructor(
     private httpService: HttpService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private loadingServce: LoadingService
   ) {}
 
   getErrorMessage() {
@@ -44,7 +42,8 @@ export class DeleteComponent {
 
     const username: string = this.username.value;
 
-    this.loading.next(true);
+    this.loadingServce.setLoading(true);
+
     this.httpService
       .request(HttpMethod.Post, 'delete', { username })
       .subscribe({
@@ -55,12 +54,12 @@ export class DeleteComponent {
             { duration: 5000 }
           );
 
-          this.loading.next(false);
+          this.loadingServce.setLoading(false);
           this.router.navigate(['/']);
         },
         error: (error: HttpError) => {
           this.httpService.defaultErrorHandling(error);
-          this.loading.next(false);
+          this.loadingServce.setLoading(false);
 
           this.router.navigate(['/']);
         },
