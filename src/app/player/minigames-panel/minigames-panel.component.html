@@ -12,14 +12,14 @@
           matSort
         >
           <ng-container matColumnDef="text">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Boss</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Minigame</th>
             <td mat-cell class="username" *matCellDef="let element">
               <span>{{ element.text }} </span>
             </td>
           </ng-container>
 
           <ng-container matColumnDef="score">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>KC</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Score</th>
             <td mat-cell class="views" *matCellDef="let element">
               {{ formatScore(element.score) }}
             </td>
