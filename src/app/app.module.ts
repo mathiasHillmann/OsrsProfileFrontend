@@ -15,6 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -26,8 +27,10 @@ import { DeleteComponent } from './delete/delete.component';
 import { UsernameInputDirective } from './directives/username-input.directive';
 import { HomeComponent } from './home/home.component';
 import { MostViewedComponent } from './most-viewed/most-viewed.component';
+import { BossesPanelComponent } from './player/bosses-panel/bosses-panel.component';
 import { DiariesPanelComponent } from './player/diaries-panel/diaries-panel.component';
 import { DiaryComponent } from './player/diaries-panel/diary/diary.component';
+import { MinigamesPanelComponent } from './player/minigames-panel/minigames-panel.component';
 import { PlayerComponent } from './player/player.component';
 import { QuestsPanelComponent } from './player/quests-panel/quests-panel.component';
 import { SkillComponent } from './player/skills-panel/skill/skill.component';
@@ -36,6 +39,7 @@ import { AccountBadgeComponent } from './player/summary-panel/account-badge/acco
 import { SummaryCardComponent } from './player/summary-panel/summary-card/summary-card.component';
 import { SummaryPanelComponent } from './player/summary-panel/summary-panel.component';
 import { HttpService } from './services/http.service';
+import { LoadingService } from './services/loading.service';
 
 @NgModule({
   declarations: [
@@ -43,18 +47,25 @@ import { HttpService } from './services/http.service';
     HomeComponent,
     DeleteComponent,
     MostViewedComponent,
+    ConfigComponent,
     PlayerComponent,
     UsernameInputDirective,
+    AccountBadgeComponent,
 
     SummaryPanelComponent,
+    SummaryCardComponent,
+
     SkillsPanelComponent,
     SkillComponent,
+
     QuestsPanelComponent,
-    ConfigComponent,
-    AccountBadgeComponent,
-    SummaryCardComponent,
+
     DiariesPanelComponent,
     DiaryComponent,
+
+    BossesPanelComponent,
+
+    MinigamesPanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,8 +88,9 @@ import { HttpService } from './services/http.service';
     MatSidenavModule,
     MatListModule,
     MatTableModule,
+    MatSortModule,
   ],
-  providers: [HttpService],
+  providers: [HttpService, LoadingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,10 +1,10 @@
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { HttpResponse } from '../interfaces/http-response';
 import { HttpError, HttpMethod, HttpService } from '../services/http.service';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-home',
@@ -18,30 +18,30 @@ export class HomeComponent {
   ]);
   options: string[] = [];
 
-  @Output()
-  loading: Subject<boolean> = new Subject<boolean>();
-
   backgroundImage: string = '';
 
-  constructor(private httpService: HttpService, private router: Router) {
-    this.loading.next(true);
+  constructor(
+    private httpService: HttpService,
+    private router: Router,
+    private loadingService: LoadingService
+  ) {
     this.search.valueChanges
       .pipe(debounceTime(400), distinctUntilChanged())
       .subscribe({
         next: (value) => {
           if (value && this.search.valid) {
-            this.loading.next(true);
+            this.loadingService.setLoading(true);
 
             this.httpService
               .request(HttpMethod.Get, `search/${value}`)
               .subscribe({
                 next: (response: HttpResponse<string[]>) => {
                   this.options = response.data;
-                  this.loading.next(false);
+                  this.loadingService.setLoading(false);
                 },
                 error: (error: HttpError) => {
                   this.httpService.defaultErrorHandling(error);
-                  this.loading.next(false);
+                  this.loadingService.setLoading(false);
                 },
               });
           } else {
@@ -84,15 +84,15 @@ export class HomeComponent {
   }
 
   onRandomClick() {
-    this.loading.next(true);
+    this.loadingService.setLoading(true);
     this.httpService.request(HttpMethod.Get, 'random').subscribe({
       next: (response: HttpResponse<Record<string, string>>) => {
-        this.loading.next(false);
+        this.loadingService.setLoading(false);
         this.router.navigate(['/player', response.data['username']]);
       },
       error: (error: HttpError) => {
         this.httpService.defaultErrorHandling(error);
-        this.loading.next(false);
+        this.loadingService.setLoading(false);
       },
     });
   }

@@ -9,6 +9,7 @@ export interface Skill {
   realLevel: number;
   virtualLevel: number;
   experience: number;
+  rank: number;
 }
 
 export interface Quest {
@@ -23,10 +24,25 @@ export interface Diary {
   elite: boolean;
 }
 
+export interface Boss {
+  text: string;
+  kc: number;
+  pb: number;
+  rank: number;
+}
+
+export interface Minigame {
+  text: string;
+  score: number;
+  rank: number;
+}
+
 export interface PlayerData {
   skills: Record<string, Skill>;
   quest: Record<string, Quest>;
   miniquest: Record<string, Quest>;
   summary: Record<string, any>;
   diaries: Record<string, Diary>;
+  bosses: Record<string, Boss>;
+  minigames: Record<string, Minigame>;
 }

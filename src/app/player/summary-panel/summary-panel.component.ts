@@ -1,5 +1,5 @@
 import { formatNumber } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input, LOCALE_ID } from '@angular/core';
 import { PlayerData } from 'src/app/interfaces/player-data';
 
 @Component({
@@ -18,10 +18,12 @@ export class SummaryPanelComponent {
   }
 
   get experience(): string {
-    return formatNumber(this.data['total']['experience'], 'en-US', '1.0-0');
+    return formatNumber(this.data['total']['experience'], this.locale, '1.0-0');
   }
 
   get lastSyncTime(): string {
     return new Date(this.data['updatedAt']).toLocaleString();
   }
+
+  constructor(@Inject(LOCALE_ID) public locale: string) {}
 }

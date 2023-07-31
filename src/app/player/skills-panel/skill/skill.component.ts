@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { formatNumber } from '@angular/common';
+import { Component, Inject, Input, LOCALE_ID } from '@angular/core';
 import { Skill } from 'src/app/interfaces/player-data';
 
 @Component({
@@ -13,6 +14,8 @@ export class SkillComponent {
 
   static readonly MAX_NORMAL_LEVEL: number = 99;
   static readonly MAX_VIRTUAL_LEVEL: number = 126;
+
+  constructor(@Inject(LOCALE_ID) public locale: string) {}
 
   get level(): number | null {
     return this.shouldUseVirtualLevels
@@ -49,5 +52,13 @@ export class SkillComponent {
     }
 
     return '';
+  }
+
+  get rank(): string {
+    if (this.skill.rank) {
+      return formatNumber(this.skill.rank, this.locale, '1.0-0');
+    } else {
+      return '-';
+    }
   }
 }

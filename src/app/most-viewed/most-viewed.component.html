@@ -32,6 +32,7 @@
           <tr
             mat-row
             *matRowDef="let row; columns: displayedColumns"
+            class="clickable"
             (click)="onRowClick(row)"
           ></tr>
         </table>

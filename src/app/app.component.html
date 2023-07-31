@@ -14,12 +14,15 @@
       </button>
     </div>
   </mat-toolbar>
-  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <mat-progress-bar
+    *ngIf="loadingService.getLoading()"
+    mode="indeterminate"
+  ></mat-progress-bar>
 
   <mat-sidenav-container [hasBackdrop]="true">
     <mat-sidenav-content>
       <main>
-        <router-outlet (activate)="componentAdded($event)"></router-outlet>
+        <router-outlet></router-outlet>
       </main>
     </mat-sidenav-content>
 

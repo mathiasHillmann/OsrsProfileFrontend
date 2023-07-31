@@ -75,3 +75,30 @@ body {
   --mdc-snackbar-container-color: #f44336;
   color: white;
 }
+
+.mat-mdc-table {
+  background-color: rgb(216, 204, 180);
+
+  .mat-mdc-header-row .mat-mdc-header-cell {
+    background-color: rgb(184, 162, 130);
+
+    .mat-sort-header-arrow {
+      color: #464545;
+    }
+  }
+
+  .mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid rgb(148, 134, 109);
+    border-top: 1px solid rgb(148, 134, 109);
+    border-collapse: collapse;
+  }
+
+  .mat-mdc-row:hover {
+    &.clickable .mat-mdc-cell {
+      border-bottom: 1px solid black;
+      border-top: 1px solid black;
+      border-collapse: collapse;
+      cursor: pointer;
+    }
+  }
+}
