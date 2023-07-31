@@ -1,8 +1,11 @@
+import { formatNumber } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
+  Inject,
   Input,
+  LOCALE_ID,
   ViewChild,
 } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
@@ -21,7 +24,10 @@ export class BossesPanelComponent implements AfterViewInit {
   displayedColumns: string[] = ['text', 'kc', 'pb'];
   dataSource: MatTableDataSource<Boss>;
 
-  constructor(private changeDetector: ChangeDetectorRef) {
+  constructor(
+    @Inject(LOCALE_ID) public locale: string,
+    private changeDetector: ChangeDetectorRef
+  ) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -42,6 +48,22 @@ export class BossesPanelComponent implements AfterViewInit {
 
     this.sort.sort({ id: 'kc', start: 'desc', disableClear: false });
     this.changeDetector.detectChanges();
+  }
+
+  formatKc(kc?: number): string {
+    if (kc) {
+      return formatNumber(kc, this.locale, '1.0-0');
+    } else {
+      return '-';
+    }
+  }
+
+  formatRank(rank?: number): string {
+    if (rank) {
+      return formatNumber(rank, this.locale, '1.0-0');
+    } else {
+      return '-';
+    }
   }
 
   formatPb(pb?: number) {

@@ -9,6 +9,7 @@ export interface Skill {
   realLevel: number;
   virtualLevel: number;
   experience: number;
+  rank: number;
 }
 
 export interface Quest {
@@ -27,11 +28,13 @@ export interface Boss {
   text: string;
   kc: number;
   pb: number;
+  rank: number;
 }
 
 export interface Minigame {
   text: string;
   score: number;
+  rank: number;
 }
 
 export interface PlayerData {

@@ -1,4 +1,7 @@
-<mat-card matTooltip="Experience: {{ this.experience | number : '1.0-0' }}">
+<mat-card
+  matTooltip="Experience: {{ this.experience | number : '1.0-0' }}
+  Rank: {{ this.rank }}"
+>
   <mat-card-content class="skill" [ngClass]="this.trimClass">
     <div><img src="/assets/{{ skillName }}.webp" class="icon" /></div>
     <div class="level runescape-font">

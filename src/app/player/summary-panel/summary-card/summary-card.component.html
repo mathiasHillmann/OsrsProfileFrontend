@@ -1,4 +1,8 @@
-<mat-card class="summary-card">
+<mat-card
+  class="summary-card"
+  matTooltip="Rank: {{ formatRank() }}"
+  [matTooltipDisabled]="!this.rank"
+>
   <mat-card-header
     class="summary-card-header runescape-font"
     [class.smaller-text]="smallerText"

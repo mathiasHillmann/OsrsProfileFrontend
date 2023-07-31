@@ -21,12 +21,16 @@
           <ng-container matColumnDef="score">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>KC</th>
             <td mat-cell class="views" *matCellDef="let element">
-              {{ element.score | number : "1.0-0" }}
+              {{ formatKc(element.kc) }}
             </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            matTooltip="Rank: {{ formatRank(row.rank) }}"
+          ></tr>
         </table>
       </mat-card-content>
     </mat-card>
