@@ -1,13 +1,17 @@
-.diary {
+.group {
+  height: 6em;
   padding: 0.3em;
   background-color: var(--brown);
   border: solid 1px var(--light-brown);
 
   .content {
     width: 100%;
+    text-align: center;
 
     .title {
       margin-bottom: 0.25em;
+      line-height: 1em;
+      height: 2em;
     }
   }
 }

@@ -2,9 +2,13 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { HttpResponse } from '../interfaces/http-response';
-import { HttpError, HttpMethod, HttpService } from '../services/http.service';
-import { LoadingService } from '../services/loading.service';
+import { HttpResponse } from '../../interfaces/http-response';
+import {
+  HttpError,
+  HttpMethod,
+  HttpService,
+} from '../../services/http.service';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-home',

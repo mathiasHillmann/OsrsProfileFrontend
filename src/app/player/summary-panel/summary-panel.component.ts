@@ -1,6 +1,6 @@
 import { formatNumber } from '@angular/common';
 import { Component, Inject, Input, LOCALE_ID } from '@angular/core';
-import { PlayerData } from 'src/app/interfaces/player-data';
+import { PlayerData } from 'src/interfaces/player-data';
 
 @Component({
   selector: 'summary-panel',

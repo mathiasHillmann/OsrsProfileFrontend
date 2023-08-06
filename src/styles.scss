@@ -102,3 +102,15 @@ body {
     }
   }
 }
+
+.mat-mdc-menu-panel.osrs-menu {
+  background-color: var(--brown);
+  border: solid 1px var(--light-brown);
+
+  .mat-mdc-menu-item,
+  .mat-mdc-menu-item:visited,
+  .mat-mdc-menu-item:link {
+    @extend .runescape-font;
+    color: var(--orange);
+  }
+}

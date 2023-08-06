@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { LoadingService } from '../services/loading.service';
 import { ConfigComponent } from './config/config.component';
-import { LoadingService } from './services/loading.service';
 
 @Component({
   selector: 'app-root',

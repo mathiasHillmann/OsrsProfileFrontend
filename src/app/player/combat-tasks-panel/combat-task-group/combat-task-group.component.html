@@ -1,0 +1,16 @@
+<mat-card class="combat-tasks-group">
+  <mat-card-content class="group">
+    <div class="content">
+      <div class="title runescape-font" [style.color]="getGroupTitleColor()">
+        {{ title }}
+      </div>
+      <div class="runescape-font" [style.color]="getGroupTitleColor()">
+        {{ getCompletedTasks() }} / {{ getTotalTasks() }}
+      </div>
+      <bar-chart
+        [completed]="getCompletedTasksForBar()"
+        [total]="4"
+      ></bar-chart>
+    </div>
+  </mat-card-content>
+</mat-card>

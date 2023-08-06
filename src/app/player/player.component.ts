@@ -2,14 +2,14 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PlayerData } from '../interfaces/player-data';
+import { PlayerData } from '../../interfaces/player-data';
 import {
   HttpError,
   HttpMethod,
   HttpResponse,
   HttpService,
-} from '../services/http.service';
-import { LoadingService } from './../services/loading.service';
+} from '../../services/http.service';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'player',

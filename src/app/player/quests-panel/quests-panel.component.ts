@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PlayerData, QuestStatus } from 'src/app/interfaces/player-data';
+import { PlayerData, QuestStatus } from 'src/interfaces/player-data';
 
 @Component({
   selector: 'quests-panel',

@@ -2,8 +2,12 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { HttpError, HttpMethod, HttpService } from '../services/http.service';
-import { LoadingService } from '../services/loading.service';
+import {
+  HttpError,
+  HttpMethod,
+  HttpService,
+} from '../../services/http.service';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'delete',

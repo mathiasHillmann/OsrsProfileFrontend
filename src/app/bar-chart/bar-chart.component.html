@@ -1,0 +1,7 @@
+<div class="bar-chart">
+  <div
+    class="segment"
+    *ngFor="let item of [].constructor(total); let i = index"
+    [style.background-color]="getSegmentColor(i + 1)"
+  ></div>
+</div>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PlayerData } from 'src/app/interfaces/player-data';
+import { PlayerData } from 'src/interfaces/player-data';
 
 @Component({
   selector: 'diaries-panel',

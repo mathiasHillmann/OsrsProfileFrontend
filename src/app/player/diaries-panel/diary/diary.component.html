@@ -4,24 +4,7 @@
       <div class="title runescape-font" [style.color]="getDiaryTitleColor()">
         {{ diaryName }}
       </div>
-      <div class="tiers">
-        <div
-          class="tier"
-          [style.background-color]="getDiaryColor(diary.easy)"
-        ></div>
-        <div
-          class="tier"
-          [style.background-color]="getDiaryColor(diary.medium)"
-        ></div>
-        <div
-          class="tier"
-          [style.background-color]="getDiaryColor(diary.hard)"
-        ></div>
-        <div
-          class="tier"
-          [style.background-color]="getDiaryColor(diary.elite)"
-        ></div>
-      </div>
+      <bar-chart [completed]="getCompletedTiers()" [total]="4"></bar-chart>
     </div>
   </mat-card-content>
 </mat-card>

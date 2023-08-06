@@ -5,8 +5,8 @@ import {
   HttpMethod,
   HttpResponse,
   HttpService,
-} from '../services/http.service';
-import { LoadingService } from '../services/loading.service';
+} from '../../services/http.service';
+import { LoadingService } from '../../services/loading.service';
 
 interface Player {
   rank: number;
