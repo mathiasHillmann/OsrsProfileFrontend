@@ -1,7 +1,15 @@
 <div class="bar-chart">
-  <div
-    class="segment"
-    *ngFor="let item of [].constructor(total); let i = index"
-    [style.background-color]="getSegmentColor(i + 1)"
-  ></div>
+  <div class="bar">
+    <div class="segments">
+      <div class="segment"></div>
+      <div class="segment"></div>
+      <div class="segment"></div>
+      <div class="segment"></div>
+    </div>
+    <div
+      class="filled-bar"
+      [style.background-color]="getSegmentColor()"
+      [style.width]="getFilledPercentage()"
+    ></div>
+  </div>
 </div>

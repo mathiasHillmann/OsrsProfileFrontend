@@ -1,11 +1,35 @@
 .bar-chart {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
 
-  .segment {
+  .bar {
     width: 100%;
     height: 0.5em;
     border: 1px solid black;
+    background-color: var(--brown);
+
+    .filled-bar {
+      height: 0.5em;
+    }
+  }
+
+  .segments {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    background-color: transparent;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+
+    .segment {
+      width: 100%;
+      height: 0.5em;
+      background-color: transparent;
+      box-sizing: border-box;
+
+      &:not(:last-child) {
+        border-right: 1px solid black;
+      }
+    }
   }
 }

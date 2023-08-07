@@ -8,8 +8,8 @@
         {{ getCompletedTasks() }} / {{ getTotalTasks() }}
       </div>
       <bar-chart
-        [completed]="getCompletedTasksForBar()"
-        [total]="4"
+        [completed]="getCompletedTasks()"
+        [total]="getTotalTasks()"
       ></bar-chart>
     </div>
   </mat-card-content>

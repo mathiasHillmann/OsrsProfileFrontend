@@ -18,30 +18,6 @@ export class CombatTaskGroupComponent {
     return this.tasks.filter((task) => task['completed']).length;
   }
 
-  getCompletedTasksForBar(): number {
-    const percentage = Math.round(
-      (100 * this.getCompletedTasks()) / this.getTotalTasks()
-    );
-
-    if (percentage === 0) {
-      return 0;
-    }
-
-    if (percentage <= 25) {
-      return 1;
-    }
-
-    if (percentage >= 26 && percentage <= 49) {
-      return 2;
-    }
-
-    if (percentage >= 50 && percentage < 100) {
-      return 3;
-    }
-
-    return 4;
-  }
-
   getGroupTitleColor() {
     if (this.tasks.every((task) => task['completed'])) {
       return '#11ba10';
