@@ -6,26 +6,28 @@
     height: 0.5em;
     border: 1px solid black;
     background-color: var(--brown);
+    position: relative;
 
     .filled-bar {
+      box-sizing: border-box;
       height: 0.5em;
     }
   }
 
   .segments {
+    box-sizing: border-box;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 25%);
     background-color: transparent;
-    box-sizing: border-box;
     position: absolute;
     left: 0;
 
     .segment {
+      box-sizing: border-box;
       width: 100%;
       height: 0.5em;
       background-color: transparent;
-      box-sizing: border-box;
 
       &:not(:last-child) {
         border-right: 1px solid black;
