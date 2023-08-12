@@ -1,0 +1,45 @@
+<div mat-dialog-title class="dialog-title">
+  <div>
+    <div class="runescape-font title">{{ data.title }}</div>
+  </div>
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div mat-dialog-content class="dialog-content">
+  <div class="list">
+    <div
+      *ngFor="let task of data.tasks; odd as isOdd; even as isEven"
+      class="list-item"
+      [ngClass]="{ odd: isOdd, even: isEven }"
+    >
+      <div class="header">
+        <div class="image">
+          <img [src]="getImage(task.tier)" [title]="task.tier" />
+        </div>
+        <div>
+          <div
+            class="runescape-font title"
+            [style.color]="getTaskTitleColor(task)"
+          >
+            {{ task.name }}
+          </div>
+          <div class="runescape-font">
+            <span class="type">Monster: </span>
+            <span class="value">{{ task.monster }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="description">
+        <div class="runescape-font">
+          <span class="type">Type: </span>
+          <span class="value">{{ task.type }}</span>
+        </div>
+        <div class="runescape-font">
+          <span class="type">Description: </span>
+          <span class="value">{{ task.description }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

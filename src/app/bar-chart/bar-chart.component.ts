@@ -11,9 +11,9 @@ export class BarChartComponent {
 
   getSegmentColor() {
     if (this.completed === this.total) {
-      return '#11ba10';
+      return 'var(--green)';
     } else {
-      return '#f1f100';
+      return 'var(--yellow)';
     }
   }
 

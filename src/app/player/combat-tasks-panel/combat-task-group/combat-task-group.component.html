@@ -1,5 +1,5 @@
 <mat-card class="combat-tasks-group">
-  <mat-card-content class="group">
+  <mat-card-content class="group" (click)="openTaskList()">
     <div class="content">
       <div class="title runescape-font" [style.color]="getGroupTitleColor()">
         {{ title }}

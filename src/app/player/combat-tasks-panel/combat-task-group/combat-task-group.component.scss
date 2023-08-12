@@ -1,17 +1,24 @@
-.group {
-  height: 6em;
-  padding: 0.3em;
-  background-color: var(--brown);
-  border: solid 1px var(--light-brown);
+.combat-tasks-group {
+  .group {
+    height: 6em;
+    padding: 0.3em;
+    background-color: var(--brown);
+    border: solid 1px var(--light-brown);
 
-  .content {
-    width: 100%;
-    text-align: center;
+    &:hover {
+      cursor: pointer;
+      border: solid 1px var(--orange);
+    }
 
-    .title {
-      margin-bottom: 0.25em;
-      line-height: 1em;
-      height: 2em;
+    .content {
+      width: 100%;
+      text-align: center;
+
+      .title {
+        margin-bottom: 0.25em;
+        line-height: 1em;
+        height: 2em;
+      }
     }
   }
 }

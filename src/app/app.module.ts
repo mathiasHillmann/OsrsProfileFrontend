@@ -33,6 +33,7 @@ import { HomeComponent } from './home/home.component';
 import { MostViewedComponent } from './most-viewed/most-viewed.component';
 import { BossesPanelComponent } from './player/bosses-panel/bosses-panel.component';
 import { CombatTaskGroupComponent } from './player/combat-tasks-panel/combat-task-group/combat-task-group.component';
+import { CombatTasksListComponent } from './player/combat-tasks-panel/combat-task-group/combat-task-list/combat-task-list.component';
 import { CombatTasksComponent } from './player/combat-tasks-panel/combat-tasks-panel.component';
 import { DiariesPanelComponent } from './player/diaries-panel/diaries-panel.component';
 import { DiaryComponent } from './player/diaries-panel/diary/diary.component';
@@ -70,6 +71,7 @@ import { SummaryPanelComponent } from './player/summary-panel/summary-panel.comp
 
     CombatTasksComponent,
     CombatTaskGroupComponent,
+    CombatTasksListComponent,
 
     BossesPanelComponent,
 

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CombatTasks, PlayerData } from 'src/interfaces/player-data';
+import { CombatTask, PlayerData } from 'src/interfaces/player-data';
 
 @Component({
   selector: 'combat-tasks-panel',
@@ -10,8 +10,8 @@ export class CombatTasksComponent {
   @Input() tasks!: PlayerData['tasks'];
   currentShowMethod: string = 'tiers';
 
-  getTasks(field: keyof CombatTasks, value: string) {
-    return this.tasks.filter((task: CombatTasks) => task[field] === value);
+  getTasks(field: keyof CombatTask, value: string) {
+    return this.tasks.filter((task: CombatTask) => task[field] === value);
   }
 
   getBosses() {

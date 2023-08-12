@@ -37,7 +37,7 @@ export interface Minigame {
   rank: number;
 }
 
-export interface CombatTasks {
+export interface CombatTask {
   monster: string;
   tier: string;
   type: string;
@@ -55,5 +55,5 @@ export interface PlayerData {
   diaries: Record<string, Diary>;
   bosses: Record<string, Boss>;
   minigames: Record<string, Minigame>;
-  tasks: CombatTasks[];
+  tasks: CombatTask[];
 }

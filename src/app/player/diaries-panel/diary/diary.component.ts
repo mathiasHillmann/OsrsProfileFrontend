@@ -18,13 +18,13 @@ export class DiaryComponent {
     const diaries: boolean[] = Object.values(this.diary);
 
     if (diaries.every((diary) => diary != null && diary === true)) {
-      return '#11ba10';
+      return 'var(--green)';
     }
 
     if (diaries.some((diary) => diary != null && diary !== false)) {
-      return '#f1f100';
+      return 'var(--yellow)';
     }
 
-    return '#8B8B8B';
+    return 'var(--grey)';
   }
 }

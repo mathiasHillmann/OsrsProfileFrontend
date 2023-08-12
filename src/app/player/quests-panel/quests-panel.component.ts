@@ -13,17 +13,17 @@ export class QuestsPanelComponent {
 
   getQuestColor(status: string) {
     if (status === QuestStatus.Complete) {
-      return '#11ba10';
+      return 'var(--green)';
     }
 
     if (status === QuestStatus.InProgress) {
-      return '#f1f100';
+      return 'var(--yellow)';
     }
 
     if (status === QuestStatus.NotStarted) {
-      return '#D20302';
+      return 'var(--red)';
     }
 
-    return '#8B8B8B';
+    return 'var(--grey)';
   }
 }
