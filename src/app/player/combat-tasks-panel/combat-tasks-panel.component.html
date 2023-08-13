@@ -8,6 +8,27 @@
   <mat-card-content>
     <mat-card class="combat-tasks-list">
       <mat-card-content>
+        <div class="summary">
+          <div class="bar-chart">
+            <div class="bar">
+              <div class="segments">
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+              </div>
+              <div
+                class="filled-bar"
+                [style.width]="getFilledPercentage()"
+              ></div>
+            </div>
+          </div>
+          <div class="runescape-font points">
+            {{ getPointsString() }} - {{ getCurrentTier() }}
+          </div>
+        </div>
         <div class="grid" *ngIf="currentShowMethod === 'tiers'">
           <combat-task-group
             title="Easy"

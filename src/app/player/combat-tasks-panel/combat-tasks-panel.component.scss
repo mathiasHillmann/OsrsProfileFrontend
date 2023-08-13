@@ -39,5 +39,52 @@
       grid-template-columns: 50% 50%;
       gap: 0.2em;
     }
+
+    .summary {
+      .bar-chart {
+        width: 100%;
+
+        .bar {
+          width: 100%;
+          height: 2em;
+          border: 1px solid black;
+          background-color: var(--brown);
+          position: relative;
+
+          .filled-bar {
+            box-sizing: border-box;
+            background-color: var(--green);
+            height: 2em;
+          }
+        }
+
+        .segments {
+          box-sizing: border-box;
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1.64% 4.08% 9.42% 25.73% 32.16% 26.93%;
+          background-color: transparent;
+          position: absolute;
+          left: 0;
+
+          .segment {
+            box-sizing: border-box;
+            width: 100%;
+            height: 2em;
+            background-color: transparent;
+
+            &:not(:last-child) {
+              border-right: 1px solid black;
+            }
+          }
+        }
+      }
+
+      .points {
+        text-align: center;
+        padding: 0.25em;
+        color: var(--orange);
+      }
+    }
   }
 }
