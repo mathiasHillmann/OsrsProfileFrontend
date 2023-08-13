@@ -1,0 +1,55 @@
+:host {
+  .dialog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      color: var(--orange);
+      font-size: 1.5em;
+    }
+  }
+
+  .dialog-content {
+    .list {
+      border: solid 1px var(--link-brown);
+      height: 60vh;
+      overflow-y: scroll;
+
+      .even {
+        background-color: var(--light-brown);
+      }
+
+      .odd {
+        background-color: var(--brown);
+      }
+
+      .list-item {
+        padding: 0.5em;
+
+        .header {
+          display: grid;
+          grid-template-columns: 2em auto;
+
+          .image {
+            display: flex;
+            place-items: center;
+
+            img {
+              height: 1.5em;
+              width: 1.5em;
+            }
+          }
+        }
+
+        .type {
+          color: var(--orange);
+        }
+
+        .value {
+          color: white;
+        }
+      }
+    }
+  }
+}

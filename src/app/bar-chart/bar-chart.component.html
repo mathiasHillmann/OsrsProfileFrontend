@@ -1,0 +1,15 @@
+<div class="bar-chart">
+  <div class="bar">
+    <div class="segments">
+      <div class="segment"></div>
+      <div class="segment"></div>
+      <div class="segment"></div>
+      <div class="segment"></div>
+    </div>
+    <div
+      class="filled-bar"
+      [style.background-color]="getSegmentColor()"
+      [style.width]="getFilledPercentage()"
+    ></div>
+  </div>
+</div>

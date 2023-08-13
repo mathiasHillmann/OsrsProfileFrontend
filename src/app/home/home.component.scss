@@ -28,7 +28,7 @@
 
         .random {
           cursor: pointer;
-          color: rgb(147, 96, 57);
+          color: var(--link-brown);
           text-decoration: underline;
           padding-bottom: 0.5em;
           display: flex;

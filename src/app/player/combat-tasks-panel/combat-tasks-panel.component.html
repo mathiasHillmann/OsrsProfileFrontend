@@ -1,0 +1,73 @@
+<mat-card class="combat-tasks-panel">
+  <mat-card-header class="combat-tasks-panel-header">
+    <div class="runescape-font title">Combat Tasks</div>
+    <button mat-button [matMenuTriggerFor]="menu" class="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card class="combat-tasks-list">
+      <mat-card-content>
+        <div class="summary">
+          <div class="bar-chart">
+            <div class="bar">
+              <div class="segments">
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+              </div>
+              <div
+                class="filled-bar"
+                [style.width]="getFilledPercentage()"
+              ></div>
+            </div>
+          </div>
+          <div class="runescape-font points">
+            {{ getPointsString() }} - {{ getCurrentTier() }}
+          </div>
+        </div>
+        <div class="grid" *ngIf="currentShowMethod === 'tiers'">
+          <combat-task-group
+            title="Easy"
+            [tasks]="getTasks('tier', 'Easy')"
+          ></combat-task-group>
+          <combat-task-group
+            title="Medium"
+            [tasks]="getTasks('tier', 'Medium')"
+          ></combat-task-group>
+          <combat-task-group
+            title="Hard"
+            [tasks]="getTasks('tier', 'Hard')"
+          ></combat-task-group>
+          <combat-task-group
+            title="Elite"
+            [tasks]="getTasks('tier', 'Elite')"
+          ></combat-task-group>
+          <combat-task-group
+            title="Master"
+            [tasks]="getTasks('tier', 'Master')"
+          ></combat-task-group>
+          <combat-task-group
+            title="Grandmaster"
+            [tasks]="getTasks('tier', 'Grandmaster')"
+          ></combat-task-group>
+        </div>
+        <div class="grid" *ngIf="currentShowMethod === 'bosses'">
+          <combat-task-group
+            *ngFor="let boss of getBosses()"
+            [title]="boss"
+            [tasks]="getTasks('monster', boss)"
+          ></combat-task-group>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
+
+<mat-menu #menu="matMenu" class="osrs-menu">
+  <button mat-menu-item (click)="showTasks('tiers')">Tiers</button>
+  <button mat-menu-item (click)="showTasks('bosses')">Bosses</button>
+</mat-menu>

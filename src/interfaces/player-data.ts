@@ -37,6 +37,16 @@ export interface Minigame {
   rank: number;
 }
 
+export interface CombatTask {
+  monster: string;
+  tier: string;
+  type: string;
+  name: string;
+  description: string;
+  completed: boolean;
+  boss: boolean;
+}
+
 export interface PlayerData {
   skills: Record<string, Skill>;
   quest: Record<string, Quest>;
@@ -45,4 +55,5 @@ export interface PlayerData {
   diaries: Record<string, Diary>;
   bosses: Record<string, Boss>;
   minigames: Record<string, Minigame>;
+  tasks: CombatTask[];
 }

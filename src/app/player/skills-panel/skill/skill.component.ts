@@ -1,6 +1,6 @@
 import { formatNumber } from '@angular/common';
 import { Component, Inject, Input, LOCALE_ID } from '@angular/core';
-import { Skill } from 'src/app/interfaces/player-data';
+import { Skill } from 'src/interfaces/player-data';
 
 @Component({
   selector: 'skill',

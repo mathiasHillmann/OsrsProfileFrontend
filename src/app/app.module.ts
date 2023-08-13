@@ -12,6 +12,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -20,14 +21,20 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsernameInputDirective } from '../directives/username-input.directive';
+import { HttpService } from '../services/http.service';
+import { LoadingService } from '../services/loading.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { ConfigComponent } from './config/config.component';
 import { DeleteComponent } from './delete/delete.component';
-import { UsernameInputDirective } from './directives/username-input.directive';
 import { HomeComponent } from './home/home.component';
 import { MostViewedComponent } from './most-viewed/most-viewed.component';
 import { BossesPanelComponent } from './player/bosses-panel/bosses-panel.component';
+import { CombatTaskGroupComponent } from './player/combat-tasks-panel/combat-task-group/combat-task-group.component';
+import { CombatTasksListComponent } from './player/combat-tasks-panel/combat-task-group/combat-task-list/combat-task-list.component';
+import { CombatTasksComponent } from './player/combat-tasks-panel/combat-tasks-panel.component';
 import { DiariesPanelComponent } from './player/diaries-panel/diaries-panel.component';
 import { DiaryComponent } from './player/diaries-panel/diary/diary.component';
 import { MinigamesPanelComponent } from './player/minigames-panel/minigames-panel.component';
@@ -38,8 +45,6 @@ import { SkillsPanelComponent } from './player/skills-panel/skills-panel.compone
 import { AccountBadgeComponent } from './player/summary-panel/account-badge/account-badge.component';
 import { SummaryCardComponent } from './player/summary-panel/summary-card/summary-card.component';
 import { SummaryPanelComponent } from './player/summary-panel/summary-panel.component';
-import { HttpService } from './services/http.service';
-import { LoadingService } from './services/loading.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,7 @@ import { LoadingService } from './services/loading.service';
     PlayerComponent,
     UsernameInputDirective,
     AccountBadgeComponent,
+    BarChartComponent,
 
     SummaryPanelComponent,
     SummaryCardComponent,
@@ -62,6 +68,10 @@ import { LoadingService } from './services/loading.service';
 
     DiariesPanelComponent,
     DiaryComponent,
+
+    CombatTasksComponent,
+    CombatTaskGroupComponent,
+    CombatTasksListComponent,
 
     BossesPanelComponent,
 
@@ -77,6 +87,7 @@ import { LoadingService } from './services/loading.service';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatSnackBarModule,
+    MatMenuModule,
     HttpClientModule,
     MatProgressBarModule,
     MatCardModule,

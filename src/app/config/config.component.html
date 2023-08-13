@@ -1,11 +1,13 @@
 <div mat-dialog-title class="dialog-title">
-  <div><h3>Configuration</h3></div>
+  <div class="runescape-font title">Configuration</div>
   <button mat-icon-button aria-label="close dialog" mat-dialog-close>
     <mat-icon>close</mat-icon>
   </button>
 </div>
 <div mat-dialog-content>
-  <mat-checkbox [formControl]="virtualLevel">Show virtual levels</mat-checkbox>
+  <mat-checkbox [formControl]="virtualLevel" class="runescape-font config"
+    >Show virtual levels</mat-checkbox
+  >
 </div>
 <div mat-dialog-actions align="end">
   <button

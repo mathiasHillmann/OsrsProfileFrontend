@@ -9,6 +9,8 @@
   --light-brown: #6c5f4e;
   --link-brown: rgb(147, 96, 57);
   --green: #11ba10;
+  --grey: #8b8b8b;
+  --red: #d20302;
 }
 
 $OsrsProfileFrontend-primary: mat.define-palette(mat.$indigo-palette);
@@ -101,4 +103,28 @@ body {
       cursor: pointer;
     }
   }
+}
+
+.mat-mdc-menu-panel.osrs-menu {
+  background-color: var(--brown);
+  border: solid 1px var(--light-brown);
+
+  .mat-mdc-menu-item,
+  .mat-mdc-menu-item:visited,
+  .mat-mdc-menu-item:link {
+    @extend .runescape-font;
+    color: var(--orange);
+  }
+}
+
+.mat-mdc-dialog-surface {
+  background-color: var(--dark-brown) !important;
+
+  .mat-mdc-dialog-content {
+    max-height: unset;
+  }
+}
+
+.config > .mdc-form-field {
+  color: var(--grey) !important;
 }
