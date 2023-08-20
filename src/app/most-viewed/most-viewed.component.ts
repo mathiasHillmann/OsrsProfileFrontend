@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TitleService } from 'src/services/title.service';
 import {
   HttpError,
   HttpMethod,
@@ -27,7 +28,8 @@ export class MostViewedComponent {
   constructor(
     private httpService: HttpService,
     private router: Router,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private titleService: TitleService
   ) {
     setTimeout(() => this.loadingService.setLoading(true));
 
@@ -43,6 +45,8 @@ export class MostViewedComponent {
         this.loadingService.setLoading(false);
       },
     });
+
+    this.titleService.setTitle('Most viewed');
   }
 
   onRowClick(row: Player): void {

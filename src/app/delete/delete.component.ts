@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { TitleService } from 'src/services/title.service';
 import {
   HttpError,
   HttpMethod,
@@ -24,8 +25,11 @@ export class DeleteComponent {
     private httpService: HttpService,
     private router: Router,
     private snackBar: MatSnackBar,
-    private loadingServce: LoadingService
-  ) {}
+    private loadingServce: LoadingService,
+    private titleService: TitleService
+  ) {
+    this.titleService.setTitle('Profile deletion');
+  }
 
   getErrorMessage() {
     if (this.username.hasError('max')) {
