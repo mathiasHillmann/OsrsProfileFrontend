@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs';
 import { LoadingService } from '../services/loading.service';
 import { ConfigComponent } from './config/config.component';
 
@@ -16,7 +17,13 @@ export class AppComponent {
     private router: Router,
     private dialog: MatDialog,
     public loadingService: LoadingService
-  ) {}
+  ) {
+    router.events
+      .pipe(filter((event) => event instanceof NavigationStart))
+      .subscribe({
+        next: (event) => this.loadingService.setLoading(false),
+      });
+  }
 
   onLogoClick() {
     this.router.navigate(['/']);

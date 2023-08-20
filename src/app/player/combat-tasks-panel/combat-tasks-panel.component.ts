@@ -60,31 +60,33 @@ export class CombatTasksComponent implements AfterContentInit {
   }
 
   getCurrentTier(): string {
-    if (this.completed <= 33) {
-      return "Ghommal's hilt 1";
+    let reward: string = 'No rewards';
+
+    if (this.completed >= 33) {
+      reward = "Ghommal's hilt 1";
     }
 
-    if (this.completed <= 115) {
-      return "Ghommal's hilt 2";
+    if (this.completed >= 115) {
+      reward = "Ghommal's hilt 2";
     }
 
-    if (this.completed <= 304) {
-      return "Ghommal's hilt 3";
+    if (this.completed >= 304) {
+      reward = "Ghommal's hilt 3";
     }
 
-    if (this.completed <= 820) {
-      return "Ghommal's hilt 4";
+    if (this.completed >= 820) {
+      reward = "Ghommal's hilt 4";
     }
 
-    if (this.completed <= 1465) {
-      return "Ghommal's hilt 5";
+    if (this.completed >= 1465) {
+      reward = "Ghommal's hilt 5";
     }
 
-    if (this.completed <= 2005) {
-      return "Ghommal's hilt 6";
+    if (this.completed === 2005) {
+      reward = "Ghommal's hilt 6";
     }
 
-    return "Ghommal's hilt 1";
+    return reward;
   }
 
   getPointsString(): string {

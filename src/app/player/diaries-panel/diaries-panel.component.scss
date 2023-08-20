@@ -15,7 +15,7 @@
 
   .diaries-list {
     margin-top: 1em;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 25em;
     min-width: 20em;
     background-color: var(--brown);

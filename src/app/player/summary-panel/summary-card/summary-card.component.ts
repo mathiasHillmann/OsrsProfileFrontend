@@ -12,6 +12,7 @@ export class SummaryCardComponent {
   @Input() icon!: string;
   @Input() smallerText!: boolean;
   @Input() rank!: number;
+  @Input() help!: string;
 
   constructor(@Inject(LOCALE_ID) public locale: string) {}
 

@@ -54,8 +54,7 @@ export class CombatTaskGroupComponent {
     this.dialog.open<CombatTasksListComponent, CombatTasksList>(
       CombatTasksListComponent,
       {
-        width: '60%',
-        panelClass: 'runescape-dialog',
+        panelClass: 'combat-task-dialog',
         data: {
           title: this.title,
           tasks,
