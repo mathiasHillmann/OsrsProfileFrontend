@@ -11,6 +11,11 @@
   </mat-card-header>
   <mat-card-content class="card">
     <div><img *ngIf="icon" src="/assets/{{ icon }}.webp" class="icon" /></div>
-    <div class="text runescape-font">{{ text }}</div>
+    <div class="text runescape-font">
+      {{ text }}
+    </div>
+    <mat-icon class="help" *ngIf="help" [matTooltip]="help"
+      >help_outline</mat-icon
+    >
   </mat-card-content>
 </mat-card>

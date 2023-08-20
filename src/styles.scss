@@ -128,3 +128,16 @@ body {
 .config > .mdc-form-field {
   color: var(--grey) !important;
 }
+
+.combat-task-dialog {
+  width: 60%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 100vw !important;
+  }
+}
+
+.my-custom-tooltip .mdc-tooltip__surface {
+  max-width: unset !important;
+}

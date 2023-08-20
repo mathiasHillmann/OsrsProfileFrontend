@@ -23,8 +23,12 @@ export class SkillComponent {
       : this.skill.realLevel;
   }
 
-  get experience(): number {
-    return this.skill.experience;
+  get experience(): string {
+    if (this.skill.experience) {
+      return formatNumber(this.skill.experience, this.locale, '1.0-0');
+    } else {
+      return '0';
+    }
   }
 
   get max(): number {
@@ -60,5 +64,9 @@ export class SkillComponent {
     } else {
       return '-';
     }
+  }
+
+  get tooltip(): string {
+    return `Experience: ${this.experience} (Rank: ${this.rank})`;
   }
 }

@@ -14,7 +14,11 @@
     .list {
       border: solid 1px var(--link-brown);
       height: 60vh;
-      overflow-y: scroll;
+      overflow-y: auto;
+
+      @media (max-width: 768px) {
+        height: 80vh;
+      }
 
       .even {
         background-color: var(--light-brown);

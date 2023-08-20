@@ -22,7 +22,7 @@
 
   .quest-list {
     margin-top: 1em;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 20em;
     background-color: var(--brown);
     border: solid 1px var(--light-brown);
