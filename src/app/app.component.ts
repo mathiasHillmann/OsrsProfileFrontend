@@ -16,10 +16,9 @@ export class AppComponent {
   constructor(
     private router: Router,
     private dialog: MatDialog,
-    public loadingService: LoadingService,
-    public title: Title,
-    public titleService: TitleService,
-    public loadingService: LoadingService,
+    private title: Title,
+    private titleService: TitleService,
+    public loadingService: LoadingService
   ) {
     router.events
       .pipe(filter((event) => event instanceof NavigationStart))
