@@ -9,6 +9,7 @@ import {
   HttpService,
 } from '../../services/http.service';
 import { LoadingService } from '../../services/loading.service';
+import { TitleService } from './../../services/title.service';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,8 @@ export class HomeComponent {
   constructor(
     private httpService: HttpService,
     private router: Router,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private titleService: TitleService
   ) {
     this.search.valueChanges
       .pipe(debounceTime(400), distinctUntilChanged())
@@ -57,6 +59,8 @@ export class HomeComponent {
     this.backgroundImage = `/assets/wallpaper${
       ((Math.random() * 10) | 0) + 1
     }.webp`;
+
+    this.titleService.setTitle('Home');
   }
 
   shouldShowNoResults(): boolean {

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Title } from '@angular/platform-browser';
 import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { LoadingService } from '../services/loading.service';
+import { TitleService } from './../services/title.service';
 import { ConfigComponent } from './config/config.component';
 
 @Component({
@@ -11,18 +13,25 @@ import { ConfigComponent } from './config/config.component';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'OSRS Profile';
-
   constructor(
     private router: Router,
     private dialog: MatDialog,
-    public loadingService: LoadingService
+    public loadingService: LoadingService,
+    public title: Title,
+    public titleService: TitleService,
+    public loadingService: LoadingService,
   ) {
     router.events
       .pipe(filter((event) => event instanceof NavigationStart))
       .subscribe({
         next: (event) => this.loadingService.setLoading(false),
       });
+
+    this.titleService.onChange().subscribe({
+      next: (title) => {
+        this.title.setTitle(title);
+      },
+    });
   }
 
   onLogoClick() {

@@ -2,6 +2,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TitleService } from 'src/services/title.service';
 import { PlayerData } from '../../interfaces/player-data';
 import {
   HttpError,
@@ -30,7 +31,8 @@ export class PlayerComponent implements OnInit {
     private router: Router,
     private httpService: HttpService,
     private snackBar: MatSnackBar,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private titleService: TitleService
   ) {
     this.username = this.route.snapshot.paramMap.get('username');
 
@@ -46,6 +48,8 @@ export class PlayerComponent implements OnInit {
         localStorage.getItem('virtualLevels')
       );
     });
+
+    this.titleService.setTitle('Loading profile');
   }
 
   ngOnInit(): void {
@@ -57,6 +61,7 @@ export class PlayerComponent implements OnInit {
         next: (response: HttpResponse<PlayerData>) => {
           this.playerData = response.data;
           this.loadingService.setLoading(false);
+          this.titleService.setTitle(this.username as string);
         },
         error: (error: HttpError) => {
           this.snackBar.open(
