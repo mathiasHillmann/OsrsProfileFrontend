@@ -1,38 +1,35 @@
-<mat-card class="minigames-panel">
-  <mat-card-header class="minigames-panel-header">
-    <div class="runescape-font title">Minigames</div>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-card class="minigames-list">
-      <mat-card-content>
-        <table
-          mat-table
-          [dataSource]="dataSource"
-          class="mat-elevation-z8"
-          matSort
-        >
-          <ng-container matColumnDef="text">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Minigame</th>
-            <td mat-cell class="username" *matCellDef="let element">
-              <span>{{ element.text }} </span>
-            </td>
-          </ng-container>
+<info-panel [bodyTemplate]="bodyTemplate" title="Minigames"></info-panel>
 
-          <ng-container matColumnDef="score">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Score</th>
-            <td mat-cell class="views" *matCellDef="let element">
-              {{ formatScore(element.score) }}
-            </td>
-          </ng-container>
+<ng-template #bodyTemplate>
+  <mat-card class="minigames-list">
+    <mat-card-content>
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+        matSort
+      >
+        <ng-container matColumnDef="text">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Minigame</th>
+          <td mat-cell class="username" *matCellDef="let element">
+            <span>{{ element.text }} </span>
+          </td>
+        </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr
-            mat-row
-            *matRowDef="let row; columns: displayedColumns"
-            matTooltip="Rank: {{ formatRank(row.rank) }}"
-          ></tr>
-        </table>
-      </mat-card-content>
-    </mat-card>
-  </mat-card-content>
-</mat-card>
+        <ng-container matColumnDef="score">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Score</th>
+          <td mat-cell class="views" *matCellDef="let element">
+            {{ formatScore(element.score) }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          matTooltip="Rank: {{ formatRank(row.rank) }}"
+        ></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

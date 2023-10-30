@@ -56,4 +56,7 @@ export interface PlayerData {
   bosses: Record<string, Boss>;
   minigames: Record<string, Minigame>;
   tasks: CombatTask[];
+  model: string;
+  username: string;
+  accountType: string;
 }

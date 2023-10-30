@@ -1,44 +1,27 @@
-.quest-panel {
-  background-color: var(--dark-brown);
-  height: 30em;
-  display: flex;
-  align-items: center;
+.info-grid {
+  display: grid;
+  gap: 0.2em;
+  grid-template-columns: 50% 50%;
+}
 
-  .quest-panel-header {
+.quest-list {
+  margin-top: 1em;
+  overflow-y: auto;
+  height: 20em;
+  background-color: var(--brown);
+  border: solid 1px var(--light-brown);
+
+  .title {
+    color: var(--orange);
+    font-size: 1.25em;
     padding-bottom: 0.5em;
-    gap: 1em;
 
-    .title {
-      color: var(--orange);
-      font-size: 1.5em;
+    &:first-child {
+      padding-top: 0em;
     }
-  }
 
-  .info-grid {
-    display: grid;
-    gap: 0.2em;
-    grid-template-columns: 50% 50%;
-  }
-
-  .quest-list {
-    margin-top: 1em;
-    overflow-y: auto;
-    height: 20em;
-    background-color: var(--brown);
-    border: solid 1px var(--light-brown);
-
-    .title {
-      color: var(--orange);
-      font-size: 1.25em;
-      padding-bottom: 0.5em;
-
-      &:first-child {
-        padding-top: 0em;
-      }
-
-      &:not(:first-child) {
-        padding-top: 0.5em;
-      }
+    &:not(:first-child) {
+      padding-top: 0.5em;
     }
   }
 }

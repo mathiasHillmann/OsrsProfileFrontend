@@ -21,6 +21,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SatPopoverModule } from '@ncstate/sat-popover';
 import { UsernameInputDirective } from '../directives/username-input.directive';
 import { HttpService } from '../services/http.service';
 import { LoadingService } from '../services/loading.service';
@@ -37,7 +38,9 @@ import { CombatTasksListComponent } from './player/combat-tasks-panel/combat-tas
 import { CombatTasksComponent } from './player/combat-tasks-panel/combat-tasks-panel.component';
 import { DiariesPanelComponent } from './player/diaries-panel/diaries-panel.component';
 import { DiaryComponent } from './player/diaries-panel/diary/diary.component';
+import { InfoPanelComponent } from './player/info-panel/info-panel.component';
 import { MinigamesPanelComponent } from './player/minigames-panel/minigames-panel.component';
+import { ModelPanelComponent } from './player/model-panel/model-panel.component';
 import { PlayerComponent } from './player/player.component';
 import { QuestsPanelComponent } from './player/quests-panel/quests-panel.component';
 import { SkillComponent } from './player/skills-panel/skill/skill.component';
@@ -57,6 +60,9 @@ import { SummaryPanelComponent } from './player/summary-panel/summary-panel.comp
     UsernameInputDirective,
     AccountBadgeComponent,
     BarChartComponent,
+    InfoPanelComponent,
+
+    ModelPanelComponent,
 
     SummaryPanelComponent,
     SummaryCardComponent,
@@ -100,6 +106,7 @@ import { SummaryPanelComponent } from './player/summary-panel/summary-panel.comp
     MatListModule,
     MatTableModule,
     MatSortModule,
+    SatPopoverModule,
   ],
   providers: [HttpService, LoadingService],
   bootstrap: [AppComponent],

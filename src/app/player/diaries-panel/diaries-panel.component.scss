@@ -1,37 +1,20 @@
-.diaries-panel {
-  background-color: var(--dark-brown);
-  height: 30em;
-  display: flex;
-  align-items: center;
+.diaries-list {
+  overflow-y: auto;
+  height: 25em;
+  min-width: 20em;
+  background-color: var(--brown);
+  border: solid 1px var(--light-brown);
 
-  .diaries-panel-header {
-    gap: 1em;
+  .grid {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 0.2em;
 
     .title {
       color: var(--orange);
-      font-size: 1.5em;
-    }
-  }
-
-  .diaries-list {
-    margin-top: 1em;
-    overflow-y: auto;
-    height: 25em;
-    min-width: 20em;
-    background-color: var(--brown);
-    border: solid 1px var(--light-brown);
-
-    .grid {
-      display: grid;
-      grid-template-rows: auto;
-      gap: 0.2em;
-
-      .title {
-        color: var(--orange);
-        font-size: 1.25em;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-      }
+      font-size: 1.25em;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
     }
   }
 }

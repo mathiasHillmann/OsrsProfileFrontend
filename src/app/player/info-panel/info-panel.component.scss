@@ -1,0 +1,16 @@
+.panel {
+  background-color: var(--dark-brown);
+  height: 30em;
+  display: flex;
+  align-items: center;
+
+  .panel-header {
+    gap: 1em;
+    margin-bottom: 1em;
+
+    .title {
+      color: var(--orange);
+      font-size: 1.5em;
+    }
+  }
+}
