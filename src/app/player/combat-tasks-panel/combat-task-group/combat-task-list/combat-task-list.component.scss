@@ -11,6 +11,25 @@
   }
 
   .dialog-content {
+    .form {
+      display: grid;
+      gap: 1em;
+
+      @media (min-width: 768px) {
+        grid-template-columns: 0.5fr 0.5fr 0.5fr;
+      }
+
+      .form-field {
+        mat-label {
+          color: var(--orange);
+        }
+
+        .select {
+          color: var(--yellow);
+        }
+      }
+    }
+
     .list {
       border: solid 1px var(--link-brown);
       height: 60vh;
