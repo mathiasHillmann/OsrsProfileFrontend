@@ -7,9 +7,52 @@
   </button>
 </div>
 <div mat-dialog-content class="dialog-content">
+  <form class="form">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label class="runescape-font">Monster</mat-label>
+      <mat-select
+        class="select runescape-font"
+        [formControl]="bossFilter"
+        name="boss"
+      >
+        <mat-option value="all">All</mat-option>
+        <mat-option *ngFor="let boss of bossList" [value]="boss">{{
+          boss
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label class="runescape-font">Status</mat-label>
+      <mat-select
+        class="select runescape-font"
+        [formControl]="statusFilter"
+        name="status"
+      >
+        <mat-option value="all">All</mat-option>
+        <mat-option value="completed">Completed</mat-option>
+        <mat-option value="not_completed">Not Completed</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label class="runescape-font">Tier</mat-label>
+      <mat-select
+        class="select runescape-font"
+        [formControl]="tierFilter"
+        name="tier"
+      >
+        <mat-option value="all">All</mat-option>
+        <mat-option *ngFor="let tier of tierList" [value]="tier">{{
+          tier
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
   <div class="list">
     <div
-      *ngFor="let task of data.tasks; odd as isOdd; even as isEven"
+      *ngFor="let task of getFilteredList(); odd as isOdd; even as isEven"
       class="list-item"
       [ngClass]="{ odd: isOdd, even: isEven }"
     >

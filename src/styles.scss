@@ -141,3 +141,7 @@ body {
 .my-custom-tooltip .mdc-tooltip__surface {
   max-width: unset !important;
 }
+
+mat-form-field {
+  padding-top: 8px;
+}
