@@ -1,67 +1,63 @@
-<mat-card class="summary-panel">
-  <mat-card-header class="summary-panel-header">
-    <div class="runescape-font title">{{ data["username"] }}</div>
-    <account-badge [accountType]="this.data['accountType']"></account-badge>
-  </mat-card-header>
-  <mat-card-content>
-    <div class="grid">
-      <summary-card
-        title="Combat level"
-        icon="combat"
-        [text]="this.data['combat']"
-      ></summary-card>
-      <summary-card
-        title="Total level"
-        icon="total"
-        [text]="totalLevel"
-        [rank]="this.data['total']['rank']"
-      ></summary-card>
-      <summary-card
-        title="Experience"
-        icon="experience"
-        [text]="experience"
-        class="full-line"
-      ></summary-card>
-      <summary-card
-        title="Quests completed"
-        icon="quest"
-        [text]="
-          this.data['quest']['complete'] + ' / ' + this.data['quest']['total']
-        "
-      ></summary-card>
-      <summary-card
-        title="Achievements completed"
-        icon="diary"
-        [text]="
-          this.data['diary']['complete'] + ' / ' + this.data['diary']['total']
-        "
-        [smallerText]="true"
-        help="This counter refers to the total of tiers completed"
-      ></summary-card>
-      <summary-card
-        title="Combat tasks completed"
-        icon="combat_achievement"
-        [text]="
-          this.data['combatTasks']['complete'] +
-          ' / ' +
-          this.data['combatTasks']['total']
-        "
-        [smallerText]="true"
-      ></summary-card>
-      <summary-card
-        title="Collections logged"
-        icon="collection_log"
-        [text]="
-          this.data['collection']['complete'] +
-          ' / ' +
-          this.data['collection']['total']
-        "
-      ></summary-card>
-      <summary-card
-        title="Last synced at"
-        [text]="lastSyncTime"
-        class="full-line"
-      ></summary-card>
-    </div>
-  </mat-card-content>
-</mat-card>
+<info-panel [bodyTemplate]="bodyTemplate" title="Summary"></info-panel>
+
+<ng-template #bodyTemplate>
+  <div class="grid">
+    <summary-card
+      title="Combat level"
+      icon="combat"
+      [text]="this.data['combat']"
+    ></summary-card>
+    <summary-card
+      title="Total level"
+      icon="total"
+      [text]="totalLevel"
+      [rank]="this.data['total']['rank']"
+    ></summary-card>
+    <summary-card
+      title="Experience"
+      icon="experience"
+      [text]="experience"
+      class="full-line"
+    ></summary-card>
+    <summary-card
+      title="Quests completed"
+      icon="quest"
+      [text]="
+        this.data['quest']['complete'] + ' / ' + this.data['quest']['total']
+      "
+    ></summary-card>
+    <summary-card
+      title="Achievements completed"
+      icon="diary"
+      [text]="
+        this.data['diary']['complete'] + ' / ' + this.data['diary']['total']
+      "
+      [smallerText]="true"
+      help="This counter refers to the total of tiers completed"
+    ></summary-card>
+    <summary-card
+      title="Combat tasks completed"
+      icon="combat_achievement"
+      [text]="
+        this.data['combatTasks']['complete'] +
+        ' / ' +
+        this.data['combatTasks']['total']
+      "
+      [smallerText]="true"
+    ></summary-card>
+    <summary-card
+      title="Collections logged"
+      icon="collection_log"
+      [text]="
+        this.data['collection']['complete'] +
+        ' / ' +
+        this.data['collection']['total']
+      "
+    ></summary-card>
+    <summary-card
+      title="Last synced at"
+      [text]="lastSyncTime"
+      class="full-line"
+    ></summary-card>
+  </div>
+</ng-template>

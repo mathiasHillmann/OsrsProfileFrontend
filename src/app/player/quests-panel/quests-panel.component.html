@@ -1,51 +1,48 @@
-<mat-card class="quest-panel">
-  <mat-card-header class="quest-panel-header">
-    <div class="runescape-font title">Quests</div>
-  </mat-card-header>
-  <mat-card-content>
-    <div class="info-grid">
-      <summary-card
-        [smallerText]="true"
-        title="Quests completed"
-        icon="quest"
-        [text]="
-          this.summary['quest']['complete'] +
-          ' / ' +
-          this.summary['quest']['total']
-        "
-      ></summary-card>
-      <summary-card
-        [smallerText]="true"
-        title="Miniquests completed"
-        icon="quest"
-        [text]="
-          this.summary['miniquest']['complete'] +
-          ' / ' +
-          this.summary['miniquest']['total']
-        "
-      ></summary-card>
-    </div>
-    <mat-card class="quest-list">
-      <mat-card-content>
-        <div class="runescape-font title">Quests</div>
-        <div *ngFor="let quest of quests | keyvalue">
-          <div
-            class="runescape-font"
-            [style.color]="getQuestColor(quest.value['status'])"
-          >
-            {{ quest.value["text"] }}
-          </div>
+<info-panel [bodyTemplate]="bodyTemplate" title="Quests"></info-panel>
+
+<ng-template #bodyTemplate>
+  <div class="info-grid">
+    <summary-card
+      [smallerText]="true"
+      title="Quests completed"
+      icon="quest"
+      [text]="
+        this.summary['quest']['complete'] +
+        ' / ' +
+        this.summary['quest']['total']
+      "
+    ></summary-card>
+    <summary-card
+      [smallerText]="true"
+      title="Miniquests completed"
+      icon="quest"
+      [text]="
+        this.summary['miniquest']['complete'] +
+        ' / ' +
+        this.summary['miniquest']['total']
+      "
+    ></summary-card>
+  </div>
+  <mat-card class="quest-list">
+    <mat-card-content>
+      <div class="runescape-font title">Quests</div>
+      <div *ngFor="let quest of quests | keyvalue">
+        <div
+          class="runescape-font"
+          [style.color]="getQuestColor(quest.value['status'])"
+        >
+          {{ quest.value["text"] }}
         </div>
-        <div class="runescape-font title">Miniquests</div>
-        <div *ngFor="let miniquest of miniquests | keyvalue">
-          <div
-            class="runescape-font"
-            [style.color]="getQuestColor(miniquest.value['status'])"
-          >
-            {{ miniquest.value["text"] }}
-          </div>
+      </div>
+      <div class="runescape-font title">Miniquests</div>
+      <div *ngFor="let miniquest of miniquests | keyvalue">
+        <div
+          class="runescape-font"
+          [style.color]="getQuestColor(miniquest.value['status'])"
+        >
+          {{ miniquest.value["text"] }}
         </div>
-      </mat-card-content>
-    </mat-card>
-  </mat-card-content>
-</mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

@@ -1,0 +1,34 @@
+<info-panel
+  [bodyTemplate]="bodyTemplate"
+  [headerTemplate]="headerTemplate"
+></info-panel>
+
+<ng-template #headerTemplate>
+  <div class="runescape-font title">{{ username }}</div>
+  <account-badge
+    *ngIf="shouldShowBadge"
+    [accountType]="accountType"
+  ></account-badge>
+  <mat-icon
+    class="help"
+    [satPopoverAnchor]="p"
+    (mouseenter)="p.open()"
+    (mouseleave)="p.close()"
+    >help_outline</mat-icon
+  >
+</ng-template>
+
+<ng-template #bodyTemplate>
+  <canvas #canvas id="model-viewer"></canvas>
+</ng-template>
+
+<sat-popover #p verticalAlign="below">
+  <div class="tooltip-wrapper">
+    <p>
+      To add your model right click your "Worn equipment" tab and click "Export
+      Model to OSRS Profile"
+    </p>
+    <p>You can export your model while emoting or doing any animation</p>
+    <p>Transparent items and animated items will look wrong</p>
+  </div>
+</sat-popover>

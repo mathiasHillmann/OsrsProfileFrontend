@@ -1,5 +1,13 @@
 <div *ngIf="isLoaded" class="grid">
   <div>
+    <model-panel
+      [modelUrl]="playerData.model"
+      [username]="playerData.username"
+      [accountType]="playerData.accountType"
+    ></model-panel>
+  </div>
+
+  <div>
     <summary-panel
       [data]="playerData.summary"
       [shouldUseVirtualLevels]="this.useVirtualLevels"

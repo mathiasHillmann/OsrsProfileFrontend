@@ -1,24 +1,7 @@
-.bosses-panel {
-  background-color: var(--dark-brown);
-  height: 30em;
-  display: flex;
-  align-items: center;
-
-  .bosses-panel-header {
-    gap: 1em;
-
-    .title {
-      color: var(--orange);
-      font-size: 1.5em;
-    }
-  }
-
-  .bosses-list {
-    margin-top: 1em;
-    overflow-y: auto;
-    height: 25em;
-    min-width: 20em;
-    background-color: var(--brown);
-    border: solid 1px var(--light-brown);
-  }
+.bosses-list {
+  overflow-y: auto;
+  height: 25em;
+  min-width: 20em;
+  background-color: var(--brown);
+  border: solid 1px var(--light-brown);
 }
