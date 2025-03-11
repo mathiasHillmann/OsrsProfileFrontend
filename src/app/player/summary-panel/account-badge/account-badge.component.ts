@@ -33,6 +33,10 @@ export class AccountBadgeComponent {
       return '/assets/ironman_group.webp';
     }
 
+    if (this.accountType === 'UNRANKED_GROUP_IRONMAN') {
+      return '/assets/ironman_group_unranked.webp';
+    }
+
     if (this.accountType === 'HARDCORE_GROUP_IRONMAN') {
       return '/assets/ironman_group_hardcore.webp';
     }
