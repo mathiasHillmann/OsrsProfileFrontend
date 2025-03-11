@@ -32,6 +32,7 @@ export class CombatTasksListComponent {
     @Inject(MAT_DIALOG_DATA) public data: CombatTasksList,
     public dialogRef: MatDialogRef<CombatTasksListComponent>
   ) {
+    console.log(this.data.tasks);
     this.bossList = [...new Set(this.data.tasks.map((task) => task.monster))];
     this.tierList = [...new Set(this.data.tasks.map((task) => task.tier))];
   }
@@ -47,7 +48,7 @@ export class CombatTasksListComponent {
       list = list.filter(
         (task) =>
           task.completed ===
-          (this.statusFilter.value === 'completed' ? true : false || null)
+          (this.statusFilter.value === 'completed' ? true : false)
       );
     }
 
