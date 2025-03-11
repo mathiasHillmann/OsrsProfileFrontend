@@ -8,20 +8,21 @@ import { CombatTask, PlayerData } from 'src/interfaces/player-data';
 })
 export class CombatTasksComponent implements AfterContentInit {
   @Input() tasks!: PlayerData['tasks'];
+  @Input() summary!: PlayerData['summary'];
 
   currentShowMethod: string = 'tiers';
   total: number = 0;
   completed: number = 0;
+  completedPoints: number = 0;
+  totalPoints: number = 0;
+  tier: string = 'unknown';
 
   ngAfterContentInit() {
-    this.tasks.forEach((task) => {
-      let points: number = this.getTaskPoints(task);
-
-      this.total += points;
-      if (task.completed) {
-        this.completed += points;
-      }
-    });
+    this.completed = this.summary['combatTasks']['completed'];
+    this.completedPoints = this.summary['combatTasks']['completedPoints'];
+    this.total = this.summary['combatTasks']['total'];
+    this.totalPoints = this.summary['combatTasks']['totalPoints'];
+    this.tier = this.summary['combatTasks']['tier'];
   }
 
   getTasks(field: keyof CombatTask, value: string) {
@@ -40,58 +41,9 @@ export class CombatTasksComponent implements AfterContentInit {
     this.currentShowMethod = method;
   }
 
-  getTaskPoints(task: CombatTask): number {
-    switch (task.tier) {
-      case 'Easy':
-        return 1;
-      case 'Medium':
-        return 2;
-      case 'Hard':
-        return 3;
-      case 'Elite':
-        return 4;
-      case 'Master':
-        return 5;
-      case 'Grandmaster':
-        return 6;
-    }
-
-    return 0;
-  }
-
-  getCurrentTier(): string {
-    let reward: string = 'No rewards';
-
-    if (this.completed >= 33) {
-      reward = "Ghommal's hilt 1";
-    }
-
-    if (this.completed >= 115) {
-      reward = "Ghommal's hilt 2";
-    }
-
-    if (this.completed >= 304) {
-      reward = "Ghommal's hilt 3";
-    }
-
-    if (this.completed >= 820) {
-      reward = "Ghommal's hilt 4";
-    }
-
-    if (this.completed >= 1465) {
-      reward = "Ghommal's hilt 5";
-    }
-
-    if (this.completed === 2005) {
-      reward = "Ghommal's hilt 6";
-    }
-
-    return reward;
-  }
-
   getPointsString(): string {
     if (this.total) {
-      return `${this.completed} Points`;
+      return `${this.completedPoints} Points`;
     } else {
       return '0 / 0';
     }
@@ -99,7 +51,7 @@ export class CombatTasksComponent implements AfterContentInit {
 
   getFilledPercentage() {
     if (this.total) {
-      return `${(100 * this.completed) / this.total}%`;
+      return `${(100 * this.completedPoints) / this.totalPoints}%`;
     } else {
       return '0%';
     }

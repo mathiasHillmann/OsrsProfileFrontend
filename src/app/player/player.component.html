@@ -34,7 +34,10 @@
   </div>
 
   <div>
-    <combat-tasks-panel [tasks]="playerData.tasks"></combat-tasks-panel>
+    <combat-tasks-panel
+      [tasks]="playerData.tasks"
+      [summary]="playerData.summary"
+    ></combat-tasks-panel>
   </div>
 
   <div>
